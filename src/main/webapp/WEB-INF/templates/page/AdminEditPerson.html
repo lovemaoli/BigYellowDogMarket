@@ -1,61 +1,57 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 <head>
   <link rel="shortcut icon" href="/image/xmu.png" type="image/x-icon"/>
-  <title>编辑用户信息</title>
-  <link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/upload.css"/>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>编辑用户 - 校园二手交易平台</title>
+  <script src="/js/jquery-3.2.js">
+  </script>
+
+  <link rel="stylesheet" href="/css/regisstyle.css">
 </head>
 <body>
-<!-- 导航条 -->
-<nav class="navbar">
-  <div class="nav-menu">
-    <ul class="menu">
-      <li><a href="#">这里是管理员后台</a></li>
-    </ul>
-  </div><!-- nav-menu -->
+<section>
+  <div class="leaves">
+    <div class="set">
+      <div><img src="./image/leaf_01.png"></div>
+      <div><img src="./image/leaf_02.png"></div>
+      <div><img src="./image/leaf_03.png"></div>
+      <div><img src="./image/leaf_04.png"></div>
+      <div><img src="./image/leaf_01.png"></div>
+      <div><img src="./image/leaf_02.png"></div>
+      <div><img src="./image/leaf_03.png"></div>
+      <div><img src="./image/leaf_04.png"></div>
+    </div>
+  </div>
+  <img src="./image/bg.jpg" class="bg">
+  <img src="./image/girl2.png" class="girl">
+  <img src="./image/trees.png" class="trees">
+  <div class="login">
+    <h2>修改用户</h2>
+    <div class="innner">
+      <div class="inputBox">
+        <form action="/submitEditInfo.do" method="post">
+          <input type="hidden" th:value="${editUID}" name="UID"/>
+          <input type="text" placeholder="姓名" name="Uname" th:value="${targetUser.uname}"/>
+          <input id="email" placeholder="邮箱" type="text" name="Email" th:value="${targetUser.email}"/>
+          <span id="emailError" style="color: red"></span>
+          <input id="phoneNum" placeholder="联系电话" type="text" name="PhoneNum" th:value="${targetUser.phoneNum}"/>
 
-  <!--            <form class="nav-search">-->
-  <!--                <input type="search" class="searchIn" placeholder="搜二手商品..."/>-->
-  <!--                <button class="search-logo"><img src="/image/search.png"/></button>-->
-  <!--            </form>-->
+						<p th:type="error" th:if="${emptyError}!=null" th:text="${emptyError}"></p>
+          <input id="submit" type="submit" class="submit-btn" name="goods-submit"/>
+        </form>
+      </div>
+      <div class="group">
+        <a href="/goToAdminStage.do">Back to Admin</a>
+        <a href="#">©2023-7 大黄狗二手交易</a>
+      </div>
+    </div>
 
-  <div class="nav-info">
-    <a href="#" th:text="${marketUser.uname}"></a>
-    <a class="logout" href="/logout.do">[ 退 出 ]</a>
-  </div> <!-- nav-info -->
-</nav>
 
-<div class="titleName">
-  <h3>编辑用户信息</h3>
-</div>
-
-<div class="container">
-  <form action="/submitEditInfo.do" method="post">
-    <input type="hidden" th:value="${editUID}" name="UID"/>
-    <p>
-      <span class="name-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      姓&nbsp;&nbsp;&nbsp;&nbsp;名：<input type="text" name="Uname" th:value="${targetUser.uname}"/>
-    </p><br/>
-<!--    <p>-->
-<!--      <span class="desc-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-->
-<!--      密&nbsp;&nbsp;&nbsp;&nbsp;码：<input type="password" name="Password"/>-->
-<!--    </p><br/>-->
-    <p>
-      <span class="number-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      电&nbsp;&nbsp;&nbsp;&nbsp;话：<input type="text" name="PhoneNum" th:value="${targetUser.phoneNum}"/>
-    </p><br/>
-    <p>
-      <span class="orign-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      邮&nbsp;&nbsp;&nbsp;&nbsp;箱：<input type="text" name="Email" th:value="${targetUser.email}"/>
-    </p>
-    <input type="submit" class="submit-btn" name="goods-submit"/>
-  </form>
-</div>
-<footer>
-  <a href="#">©2021-7 二手物品交易</a>
-  <a href="#">意见反馈&nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;隐私权声明&nbsp;&nbsp;&nbsp;使用条款</a>
-</footer>
-<script type="text/javascript" src="/js/jquery-3.2.js"></script>
+  </div>
+  <script type="text/javascript" src="/js/jquery-3.2.js"></script>
+</section>
 </body>
 </html>
