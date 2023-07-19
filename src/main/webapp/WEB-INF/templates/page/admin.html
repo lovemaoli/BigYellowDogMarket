@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org" >
+
 <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
 	<title>管理员后台</title>
-	<meta charset="UTF-8"/>
-	<link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
-	<!-- javascript- -->
 	<script type="text/javascript" src="/js/jquery-3.2.js"></script>
 	<script type="text/javascript" src="/js/infomation.js"></script>
 	<script type="text/javascript">
@@ -55,75 +56,272 @@
 
 
 	</script>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
 
+		body {
+			min-height: 100vh;
+			background: url(image/05.png) center / cover;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		main.table {
+			width: 77vw;
+			height: 80vh;
+			background-color: #fff5;
+			box-shadow: 0 8px 16px #0005;
+			border-radius: 16px;
+			overflow: hidden;
+		}
+
+		.header {
+			width: 100%;
+			height: 10%;
+			background-color: #fff4;
+			padding: 0 40px;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.header .input-group {
+			width: 35%;
+			height: 50%;
+			background-color: #fff5;
+			padding: 0 20px;
+			border-radius: 10px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			transition: .2s;
+		}
+
+		.header .input-group:hover {
+			width: 45%;
+			background-color: #fff8;
+			box-shadow: 0 5px 40px #0002;
+		}
+
+		.header .input-group img {
+			width: 20px;
+			height: 20px;
+		}
+
+		.header .input-group input {
+			width: 100%;
+			background-color: transparent;
+			border: none;
+			outline: none;
+		}
+
+		.shell {
+			width: 95%;
+			max-height: calc(90% - 25px);
+			background-color: #fffb;
+			margin: 8px auto;
+			border-radius: 10px;
+			overflow: auto;
+			overflow: overlay;
+		}
+
+		.shell::-webkit-scrollbar {
+			width: 10px;
+			height: 10px;
+		}
+
+		table {
+			width: 100%;
+		}
+
+		td img {
+			width: 36px;
+			height: 36px;
+			margin-right: 10px;
+			border-radius: 50%;
+			vertical-align: middle;
+		}
+
+		table,
+		th,
+		td {
+			border-collapse: collapse;
+			padding: 20px;
+			text-align: left;
+		}
+
+		thead th {
+			position: sticky;
+			top: 0;
+			left: 0;
+			background-color: #d5d1defe;
+			cursor: pointer;
+		}
+
+		/* 偶数行背景色 */
+		tbody tr:nth-child(even) {
+			background-color: #0000000b;
+		}
+
+		tbody tr:hover {
+			background-color: #fff6 !important;
+		}
+
+		.button  {
+			padding: 5px 0;
+			border-radius: 40px;
+			text-align: center;
+		}
+
+		tr:nth-child(4n) .button {
+			background-color: #86e49d;
+			color: #006b21;
+		}
+
+		tr:nth-child(4n-1) .button {
+			background-color: #ebc474;
+		}
+
+		tr:nth-child(4n+1) .button {
+			background-color: #d893a3;
+			color: #b30021;
+		}
+
+		tr:nth-child(4n+2) .button {
+			background-color: #6fcaea;
+		}
+
+		.submit-btn {
+			padding: 5px 0;
+			border-radius: 40px;
+			text-align: center;
+		}
+
+		tr:nth-child(4n) .submit-btn {
+			background-color: #86e49d;
+			color: #006b21;
+		}
+
+		tr:nth-child(4n-1) .submit-btn {
+			background-color: #ebc474;
+		}
+
+		tr:nth-child(4n+1) .submit-btn {
+			background-color: #d893a3;
+			color: #b30021;
+		}
+
+		tr:nth-child(4n+2) .submit-btn {
+			background-color: #6fcaea;
+		}
+		.sex {
+			padding: 5px 0;
+			border-radius: 40px;
+			text-align: center;
+		}
+
+		tr:nth-child(4n) .sex {
+			background-color: #86e49d;
+			color: #006b21;
+		}
+
+		tr:nth-child(4n-1) .sex {
+			background-color: #ebc474;
+		}
+
+		tr:nth-child(4n+1) .sex {
+			background-color: #d893a3;
+			color: #b30021;
+		}
+
+		tr:nth-child(4n+2) .sex {
+			background-color: #6fcaea;
+		}
+
+		.name {
+			padding: 5px 0;
+			border-radius: 40px;
+			text-align: center;
+		}
+
+		tr:nth-child(4n) .name {
+			background-color: #86e49d;
+			color: #006b21;
+		}
+
+		tr:nth-child(4n-1) .name {
+			background-color: #ebc474;
+		}
+
+		tr:nth-child(4n+1) .name {
+			background-color: #d893a3;
+			color: #b30021;
+		}
+
+		tr:nth-child(4n+2) .name {
+			background-color: #6fcaea;
+		}
+
+	</style>
 </head>
+
 <body>
-<!-- 导航条 -->
-<nav class="navbar">
-	<div class="nav-menu">
-		<ul class="menu">
-			<li><a href="#">这里是管理员后台</a></li>
-			<li><a href="#">用户管理</a></li>
-			<li><a href="/goToAdminStage_purchaseRec.do">交易记录管理</a></li>
-		</ul>
-	</div><!-- nav-menu -->
-c
-	<div class="nav-info">
+<main class="table">
+	<section class="header">
+		<h1>管理员后台</h1>
+		<li><a href="#">用户管理</a></li>
+		<a href="/goToAddUser.do" class="btn4"><span>新增用户</span></a>
+		<li><a href="/goToAdminStage_purchaseRec.do">交易记录管理</a></li>
 		<a href="#" th:text="${marketUser.uname}"></a>
+		<div class="input-group">
+			<input type="search" placeholder="Search Data...">
+			<img src="image/search.png">
+		</div>
 		<a class="logout" href="/logout.do">[ 退 出 ]</a>
-	</div> <!-- nav-info -->
-</nav>
-<br/>
-<a href="/goToAddUser.do" class="btn4"><span>新增用户</span></a>
-<br/>
-<br/>
-<div align="center">
-<!--	<a href="/goToAddUser.do">新增用户</a>-->
-	<table border="1" cellspacing="10px">
-<!--		<a>新增用户</a>-->
-		<thead>
-		<tr>
-			<th width="150px">用户ID</th>
-			<th width="150px">用户名</th>
-			<th width="150px">用户邮箱</th>
-			<th width="150px">用户电话</th>
-			<th width="150px"></th>
-			<th width="150px"></th>
-			<th width="150px"></th>
-		</tr>
-		</thead>
-		<tbody>
-
-		<figure th:each="o:${userList}">
+	</section>
+	<section class="shell">
+		<table>
+			<thead>
 			<tr>
-				<td th:text="${o.UID}" align="center"></td>
-				<td th:text="${o.uname}" align="center"></td>
-				<td th:text="${o.email}" align="center"></td>
-				<td th:text="${o.phoneNum}" align="center"></td>
-				<td align="center">
-					<a class="submit-btn" th:if="${o.status!=2}" th:value="${o.UID} + ' ' + ${o.email}">重置密码</a>
-					<a th:if="${o.status==2}">已注销</a>
-				</td>
-				<td align="center">
-					<a class="sex" th:if="${o.status!=2}" th:value="${o.UID}">编辑</a>
-					<a th:if="${o.status==2}">已注销</a>
-				</td>
-				<td align="center">
-					<a class="name" th:if="${o.status!=2}" th:value="${o.UID}">注销</a>
-					<a th:if="${o.status==2}">已注销</a>
-				</td>
+				<th width="150px">用户ID</th>
+				<th width="150px">用户名</th>
+				<th width="150px">用户邮箱</th>
+				<th width="150px">用户电话</th>
+				<th width="150px"></th>
+				<th width="150px"></th>
+				<th width="150px"></th>
 			</tr>
-		</figure>
-		</tbody>
-	</table>
-</div>
-
-
-<footer>
-	<a href="#">©2021-7 二手物品交易</a>
-	<a href="#">意见反馈&nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;隐私权声明&nbsp;&nbsp;&nbsp;使用条款</a>
-</footer>
-
-
+			</thead>
+			<tbody>
+			<figure th:each="o:${userList}">
+				<tr>
+					<td th:text="${o.UID}" align="center"></td>
+					<td th:text="${o.uname}" align="center"></td>
+					<td th:text="${o.email}" align="center"></td>
+					<td th:text="${o.phoneNum}" align="center"></td>
+					<td align="center">
+						<a class="submit-btn" th:if="${o.status!=2}" th:value="${o.UID} + ' ' + ${o.email}">重置密码</a>
+						<a th:if="${o.status==2}">已注销</a>
+					</td>
+					<td align="center">
+						<a class="sex" th:if="${o.status!=2}" th:value="${o.UID}">编辑</a>
+						<a th:if="${o.status==2}">已注销</a>
+					</td>
+					<td align="center">
+						<a class="name" th:if="${o.status!=2}" th:value="${o.UID}">注销</a>
+						<a th:if="${o.status==2}">已注销</a>
+					</td>
+				</tr>
+			</figure>
+			</tbody>
+		</table>
+	</section>
+</main>
 </body>
+
 </html>
