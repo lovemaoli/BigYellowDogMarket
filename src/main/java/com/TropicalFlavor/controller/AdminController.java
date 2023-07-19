@@ -146,7 +146,7 @@ public class AdminController
                 || PhoneNum.isEmpty())
             return "redirect:/goToAddUser.do";
         String Password=StringUtils.getInstance().getRandomChar();
-        User newUser = new User("NORM"+sNum,Uname, Email, PhoneNum, Password,1);
+        User newUser = new User(sNum,Uname, Email, PhoneNum, Password,1);
         boolean isRegisterSuccess = userService.Register(newUser);
 
         if(isRegisterSuccess)

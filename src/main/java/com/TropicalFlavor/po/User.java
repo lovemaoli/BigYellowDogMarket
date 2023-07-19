@@ -71,7 +71,7 @@ public class User {
 
     public User(String uname, String email, String phoneNum, String password, String SID)
     {
-        this.UID = "NORM"+SID;
+        this.UID = SID;
         Uname = uname;
         Email = email;
         PhoneNum = phoneNum;
