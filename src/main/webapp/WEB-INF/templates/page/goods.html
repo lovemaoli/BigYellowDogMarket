@@ -5,6 +5,7 @@
 	<title>二手商品总览</title>
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="/css/goods.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/navall.css"/>
 	<script type="text/javascript" src="/js/jquery-3.2.js"></script>
 	<script type="text/javascript" src="/js/goods.js"></script>
 	<script type="text/javascript" src="/js/search.js"></script>
@@ -69,18 +70,23 @@
 
 	<!-- 导航 -->
 	<header class="navbar">
-		<div class="nav-info">
-			<!--			<a class="username" href="information.html">用户</a>-->
-			<a href="/login.do" th:if="${marketUser}==null" class="username">用户</a>
-			<a href="/personal_info.do" th:if="${marketUser}!=null" th:text="${marketUser.uname}"></a>
-			<!--			<a class="goodsshelf" href="register1.html">||&nbsp;&nbsp;&nbsp;注册</a>-->
-			<a class="goodshelf" href="/login.do" th:if="${marketUser}==null">||&nbsp;&nbsp;&nbsp;我的购物车</a>
-			<a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser}!=null">||&nbsp;&nbsp;&nbsp;我的购物车</a>
-			<a class="logout" href="#" th:if="${marketUser}==null">[ 退 出 ]</a>
-			<a class="logout" href="/logout.do" th:if="${marketUser}!=null">[ 退 出 ]</a>
-		</div> <!-- nav-info -->
+		<div class="shell-main-nav">
+			<div class="logo">
+				<img src="./image/Cheems log.jpg" alt="">
+				<span>大黄狗二手交易</span>
+			</div>
+			<ul style="list-style-type:none">
+				<li><a href="/login.do" th:if="${marketUser}==null" class="username">用户</a></li>
+				<li><a href="/personal_info.do" th:if="${marketUser}!=null" th:text="${marketUser.uname}"></a></li>
+				<li><a class="goodshelf" href="/login.do" th:if="${marketUser}==null">||&nbsp;&nbsp;&nbsp;我的购物车</a></li>
+				<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser}!=null">||&nbsp;&nbsp;&nbsp;我的购物车</a></li>
+				<li><a class="logout" href="#" th:if="${marketUser}==null">[ 退 出 ]</a></li>
+				<li><a class="logout" href="/logout.do" th:if="${marketUser}!=null"> [ 退出 ]</a></li>
+				<div class="nav-box"></div>
+			</ul>
+		</div>
+
 		<form class="nav-search">
-			<a href="/"><img class="logo" src="/image/title.jpg"/></a>
 			<div class="search-form">
 				<a class="search-logo">| &nbsp;<img src="/image/search.png"/></a>
 				<input type="text" class="searchIn" th:value="${Keywords}" placeholder="搜二手物品..."/>
