@@ -78,8 +78,8 @@
 			<ul style="list-style-type:none">
 				<li><a href="/login.do" th:if="${marketUser}==null" class="username">用户</a></li>
 				<li><a href="/personal_info.do" th:if="${marketUser}!=null" th:text="${marketUser.uname}"></a></li>
-				<li><a class="goodshelf" href="/login.do" th:if="${marketUser}==null">||&nbsp;&nbsp;&nbsp;我的购物车</a></li>
-				<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser}!=null">||&nbsp;&nbsp;&nbsp;我的购物车</a></li>
+				<li><a class="goodshelf" href="/login.do" th:if="${marketUser}==null">我的购物车</a></li>
+				<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser}!=null">我的购物车</a></li>
 				<li><a class="logout" href="#" th:if="${marketUser}==null">[ 退 出 ]</a></li>
 				<li><a class="logout" href="/logout.do" th:if="${marketUser}!=null"> [ 退出 ]</a></li>
 				<div class="nav-box"></div>
