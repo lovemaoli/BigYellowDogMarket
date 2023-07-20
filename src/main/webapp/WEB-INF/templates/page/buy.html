@@ -6,78 +6,76 @@
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="/css/bookDetail.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/navall.css"/>
 	<script type="text/javascript" src="/js/jquery-3.2.js"></script>
 	<script type="text/javascript" src="/js/infomation.js"></script>
-<!--	<script th:inline="javascript">-->
-<!--		<![CDATA[-->
-<!--			$(function (){-->
-<!--				$("#buy-submit").click(function (){-->
-<!--					var buy_num = $("#buy-num").val();-->
-<!--					var goods_num = $("#goods-num").val();-->
+	<!--	<script th:inline="javascript">-->
+	<!--		<![CDATA[-->
+	<!--			$(function (){-->
+	<!--				$("#buy-submit").click(function (){-->
+	<!--					var buy_num = $("#buy-num").val();-->
+	<!--					var goods_num = $("#goods-num").val();-->
 
-<!--					console.log(buy_num);-->
-<!--					console.log(goods_num);-->
+	<!--					console.log(buy_num);-->
+	<!--					console.log(goods_num);-->
 
-<!--					if (parseFloat(buy_num) - parseFloat(goods_num) < 0.000001)-->
-<!--					{-->
-<!--						alert("购买数量不能大于商品数量");-->
-<!--						window.event.returnValue = false;-->
-<!--					}-->
+	<!--					if (parseFloat(buy_num) - parseFloat(goods_num) < 0.000001)-->
+	<!--					{-->
+	<!--						alert("购买数量不能大于商品数量");-->
+	<!--						window.event.returnValue = false;-->
+	<!--					}-->
 
-<!--					// var message = $("#message").val();-->
-<!--					// console.log(message);-->
-<!--					// if (message != null)-->
-<!--					// {-->
-<!--					// 	alert(message);-->
-<!--					// }-->
-<!--				});-->
-<!--			})-->
-<!--		]]>-->
+	<!--					// var message = $("#message").val();-->
+	<!--					// console.log(message);-->
+	<!--					// if (message != null)-->
+	<!--					// {-->
+	<!--					// 	alert(message);-->
+	<!--					// }-->
+	<!--				});-->
+	<!--			})-->
+	<!--		]]>-->
 
-<!--	</script>-->
+	<!--	</script>-->
 
 </head>
 <body>
-	<!-- 导航条 -->
-	<nav class="navbar">
-		<div class="nav-menu">
-            <ul class="menu">
-                <li><a href="/">首页</a></li>
-                <li><a href="/goToMallPage.do">二手商品</a></li>
-<!--                <li><a href="request.html">求购区</a></li>-->
-            </ul>					
-		</div><!-- nav-menu -->
-
-
-		<div class="nav-info">
-			<a href="/personal_info.do" th:text="${marketUser.uname}">用户</a>
-			<a class="goodshelf" href="/goToMyCart.do">||&nbsp;&nbsp;&nbsp;我的购物车</a>
-			<a class="logout" href="/logout.do">[ 退 出 ]</a>
+<!-- 导航条 -->
+<div class="shell-main-nav">
+	<div class="logo">
+		<img src="./image/Cheems log.jpg" alt="">
+		<span>大黄狗二手交易</span>
+	</div>
+	<ul style="list-style-type:none">
+		<li><a href="/">首页</a></li>
+		<li><a href="/goToMallPage.do">二手商品</a></li>
+		<li><a href="/personal_info.do">用户</a></li>
+		<li><a class="goodshelf" href="/goToMyCart.do">我的购物车</a></li>
+		<li><a class="logout" href="/logout.do"> [ 退出 ]</a></li>
+		<div class="nav-box"></div>
+	</ul>
+</div>
+<div class="container">
+	<div id="book-pic">
+		<div class="book-big">
+			<!--				<img src="/image/book.jpg" th:src="${marketGoods.getGID()}"/>-->
+			<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
+			<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
 		</div>
-	</nav>
+		<span class="tip"></span>
+	</div> <!-- book-pic-end -->
 
-	<div class="container">
-		<div id="book-pic">
-			<div class="book-big">
-<!--				<img src="/image/book.jpg" th:src="${marketGoods.getGID()}"/>-->
-				<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
-				<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
-			</div>
-			<span class="tip"></span>
-		</div> <!-- book-pic-end -->
-
-		<div id="book-info">
-			<span class="book-name" th:text="${marketGoods.getName()}">计算机组成原理</span>
-			<span class="book-publish" th:text="${marketGoods.getKind()}">唐朔飞 著 / 2009-09 / 平装</span>
-			<span class="book-price">
+	<div id="book-info">
+		<span class="book-name" th:text="${marketGoods.getName()}">计算机组成原理</span>
+		<span class="book-publish" th:text="${marketGoods.getKind()}">唐朔飞 著 / 2009-09 / 平装</span>
+		<span class="book-price">
 				<p>售价 <a class="final-price" th:text="'￥'+${marketGoods.getPrice()}">￥13.00</a></p>
 				<p>商品数量<a class="final-price" th:text="${marketGoods.getNumber()}">9</a></p>
 			</span>
-		</div>
+	</div>
 
-		<div id="seller-info">
-			<a class="seller-name">购买详情</a>
-			<span class="seller-span2">
+	<div id="seller-info">
+		<a class="seller-name">购买详情</a>
+		<span class="seller-span2">
 <!--				<p>数量<a class="seller-num">1</a></p>-->
 				<p class="cost">售价：<a class="seller-adr" th:text="${marketGoods.getPrice()}">13.0</a></p>
 				<form action="buyDirectly.do" method="post">
@@ -89,17 +87,17 @@
 
 			</span>
 
-		</div>
 	</div>
-	
+</div>
 
-	<footer>
-		<a href="#">©2021-7 二手物品交易</a>
-		<a href="#">意见反馈&nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;隐私权声明&nbsp;&nbsp;&nbsp;使用条款</a>
-	</footer>
-	
-	<!-- javascript- -->
 
-			
+<footer>
+	<a href="#">©2021-7 二手物品交易</a>
+	<a href="#">意见反馈&nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;隐私权声明&nbsp;&nbsp;&nbsp;使用条款</a>
+</footer>
+
+<!-- javascript- -->
+
+
 </body>
 </html>
