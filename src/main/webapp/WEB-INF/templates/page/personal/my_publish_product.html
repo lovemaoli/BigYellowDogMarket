@@ -1,10 +1,18 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-cn">
 <head>
-    <title>二手商品总览</title>
-    <meta charset="UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的二手商品</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/glassstyle.css" />
     <link rel="stylesheet" type="text/css" href="/css/navall.css"/>
+    <!-- <link rel="stylesheet" href="/css/form.css" /> -->
+    <!-- javascript- -->
     <script type="text/javascript" src="/js/jquery-3.2.js"></script>
     <script type="text/javascript">
         $(function ()
@@ -12,7 +20,7 @@
             $('.update_publish').click(function ()
             {
                 var id = $(this).attr('value');
-//                alert(id);
+                //                alert(id);
                 window.location.href = '/modifiedPublishProduct.do?GID=' + id;
             });
 
@@ -21,13 +29,12 @@
                 var r = confirm("确定删除？？？？")
                 if (r == true) {
                     var id = $(this).attr('value');
-//                    alert(id);
+                    //                    alert(id);
                     window.location.href="/deleteGoods.do?GID="+id;
                 }
             });
         });
     </script>
-
     <style>
         .update_publish{
             width: 40px;
@@ -37,9 +44,9 @@
             text-decoration: none;
             color: white;
             font-size: 13px;
-            border: 1px solid #4b4d52;
+            border: 1px solid #ab5619;
             border-radius: 2px;
-            background: #4b4d52;
+            background: #edb947;
         }
 
         .update_publish:hover{
@@ -57,9 +64,9 @@
             text-decoration: none;
             color: white;
             font-size: 13px;
-            border: 1px solid #4b4d52;
+            border: 1px solid #ab5619;
             border-radius: 2px;
-            background: #4b4d52;
+            background: #edb947;
         }
 
         .delete_publish:hover{
@@ -68,86 +75,404 @@
             border: 1px solid #626a55;
             font-weight: 600;
         }
+        /*商品*/
+        .card-btn {
+            position: relative;
+        }
+
+        #sell-goods,
+
+
+
+        #person,
+        #goods {
+            width: 80%;
+            height: auto;
+            margin:10px auto;
+        }
+
+        #goods{
+            display: none;
+        }
+
+        #ask-goods{
+            display: none;
+        }
+        .upload-icon{
+            width: 30px;
+            height: 30px;
+            background-image: url(../image/upload.png);
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            right: 265px;
+            top: 5px;
+        }
+
+        .card-btn #sell-upload,.card-btn #ask-upload{
+            text-decoration: none;
+            padding: 3px 10px;
+            border: 2px solid #ae6d6a;
+            background-color: white;
+            color: #c53737;
+            border-radius: 3px;
+            position: absolute;
+            right: 140px;
+            margin-top: 5px;
+            font-size: 14px;
+        }
+
+        #sell-upload:hover,#ask-upload:hover,#delete-book:hover{
+            border: 1px solid #ae6d6a;
+            background-color: #ae6d6a;
+            color: white;
+        }
+
+        #ask-upload{
+            display: none;
+        }
+
+        #delete-ask{
+            display: none;
+            margin-top: 5px;
+            position: absolute;
+            right: 20px;
+            text-decoration: none;
+            padding: 3px 10px;
+            border: 2px solid #ae6d6a;
+            font-size: 14px;
+            color: #ae6d6a;
+            border-radius: 3px;
+        }
+
+        #delete-goods{
+            margin-top: 5px;
+            position: absolute;
+            right: 20px;
+            text-decoration: none;
+            padding: 3px 10px;
+            border: 2px solid #ae6d6a;
+            font-size: 14px;
+            color: #ae6d6a;
+            border-radius: 3px;
+        }
+
+        .goods-ul{
+            width: 100%;
+            height: auto;
+            /*border: 1px solid #ccc;*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            flex-direction: row;
+            padding-left: 20px;
+            margin-top: 35px;
+        }
+
+        .person-ul{
+            width: 60%;
+            height: 100px;
+            /*border: 1px solid #ccc;*/
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            flex-direction: row;
+            padding-left: 20px;
+            margin-top: 35px;
+            margin-bottom: 35px;
+        }
+
+        .person-list{
+            width: 50%;
+            min-width: 30%;
+            height: 130px;
+            /*overflow: hidden;*/
+            overflow: visible;
+            border: 1px solid #eae1d2;
+            margin-right: 35px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .goods-lists{
+            width: 100%;
+            height: auto;
+            /*background-color: #ccc;*/
+            display: flex;
+            justify-content: flex-start;
+            margin-top:-10%;
+            margin-bottom:5px;
+            flex-wrap: wrap;
+        }
+
+        .btn4{
+            border: 2px solid #463636;
+            color:black;
+            text-decoration: none;
+            padding-left: 15px;
+            padding-right: 15px;
+            padding-top: 2px;
+            padding-bottom: 2px;
+            margin-left: 730px;
+        }
+
+        .goods-list{
+            width: 18%;
+            min-width: 16%;
+            height: 310px;
+            overflow: hidden;
+            border: 1px solid #eae1d2;
+            margin-right: 25px;
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+
+
+        table{
+            width: 100%;
+            table-layout:fixed;
+        }
+
+        td{
+            width:300px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .goods-pic{
+            width: 80%;
+            height: 180px;
+            border-bottom: 1px solid gray;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            margin:2px auto;
+        }
+
+        .goods-pic img{
+            /* margin:auto;
+            width: 120px; */
+            /* height: 120px; */
+            width: 90%;
+            /* width: 18px; */
+            border-bottom: 1px solid gray;
+            margin: 70px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .goods-name{
+            width: 100%;
+            line-height: 26px;
+            text-align: center;
+            font-size: 17px;
+            color: #ae6d6a;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+        }
+
+        .goods-detail{
+            width: 100%;
+            height: 34px;
+            line-height: 18px;
+            margin-top: 10px;
+            text-align: center;
+            text-indent: 15%;
+            color: #272222d6;
+            font-size: 14px;
+            word-wrap:break-word;
+        }
+        .goods-detail p{
+            line-height: 22px;
+        }
+
+        .goods-price,.original-price{
+            width: 100%;
+            height: 34px;
+            font-size: 15px;
+            line-height: 20px;
+            color: #880b16;
+        }
+
+        .edit-btn{
+            width: 34px;
+            height: 34px;
+            background-image: url(../image/edit.png);
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            right: 0px;
+            cursor: pointer;
+        }
+
+        .delete-btn{
+            width: 28px;
+            height: 28px;
+            background-image: url(../image/delete2.jpg);
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            left: 3px;
+            top: 6px;
+            cursor: pointer;
+            z-index: 9999 !important;
+        }
+
+        .goods-id{
+            display: none;
+        }
+
+        *{
+            padding: 0px;
+            margin: 0px;
+            font-family: Microsoft Yahei;
+            box-sizing: border-box;
+        }
+
+        .navbar{
+            width: 100%;
+            height: 40px;
+            background-color: #4b4d52;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .UP{
+            /* width: 90px;
+            height: 30px; */
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 2px;
+            padding-right: 2px;
+            margin-top: 80px;
+            margin-left: 15px;
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 25px;
+            /* border: 1px solid #3e4045; */
+            background-color: #edb947;
+            border-radius: 2px;
+            display: flex;
+        }
+
+        .UP-pic{
+            width: 80%;
+            height: 18px;
+            border-bottom: 1px solid gray;
+            margin: 70px auto;
+            display: flex;
+            flex-direction: column;
+        }
     </style>
-
 </head>
-    <body>
-
-    <!-- 导航 -->
-    <div class="shell-main-nav">
-        <div class="logo">
-          <img src="./image/Cheems log.jpg" alt="">
-          <span>大黄狗二手交易</span>
-        </div>
-        <ul style="list-style-type:none">
-          <li><a href="/">首页</a></li>
-          <li><a href="/goToMallPage.do">二手商品</a></li>
-          <li><a href="/personal_info.do" th:text="${marketUser.uname}"></a></li>
-          <li><a class="goodshelf" href="/goToMyCart.do">我的购物车</a></li>
-          <li><a class="logout" href="/logout.do"> [ 退出 ]</a></li>
-          <div class="nav-box"></div>
-        </ul>
-      </div>
-
-    <div class="show">
-        <div class="menu-er" style="width: 170px">
-            <ul>
-                <li><img src="/image/ran1.jpg" class="per"/> </li>
-                <li class="chosen"><a href="/personal_info.do" class="word"><span class="spannn">个人信息</span></a></li>
-                <li class="chosen"><a href="/my_publish_product_page.do" class="word"><span class="spannn">我的商品</span></a></li>
-                <li class="chosen"><a href="/my_buy_history.do" class="word"><span class="spannn">购买记录</span></a></li>
-                <li class="chosen"><a href="/my_sell_history.do" class="word"><span class="spannn">售卖记录</span></a></li>
-            </ul>
-        </div>
-
-    <!-- 图书分类 -->
-    <div id="container">
-        <div id="goods-container" style="overflow-y: scroll">
-            <!--<a class="ask-goods" href="/publish_product.do">发布商品</a>-->
-            <ul class="goods-lists" >
-                <h3 class="goods-title"><a href="#">| 我的二手商品</a></h3>
-                <figure class="goods-list" th:each="o:${goodsList}">
-                    <a href="#" class="goods-pic">
-                        <img th:if="${o.image==null}" src="/image/book.jpg"/>
-                        <img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
-                    </a>
-                    <a href="#" class="goods-info">
-                        <h5 class="goods-name" th:text="${o.getName()}">计算机组成原理</h5>
-                        <span class="goods-detail" th:text="'种类:' + ${o.getKind()}+' | '+ '数量:' + ${o.getNumber()}"></span>
-                        <!--						<span class="goods-detail" th:text="'数量'+${o.getNumber()}"></span>-->
-                        <h5 class="goods-price" th:text="'￥'+${o.getPrice()}">999</h5>
-                    </a>
-                    <span>
-                            <a href="#" class="update_publish" th:value="${o.getGID()}">修改商品信息</a>
-                            <a href="#" class="delete_publish" th:value="${o.getGID()}">下架商品</a>
-                    </span>
-                </figure>
-                <li class="goods-list">
-                    <a href="/publish_product.do" class="UP-pic">
-                        <img src="/image/jiajia.jpg"/>
-                    </a>
-                    <span>
-                        <a href="/publish_product.do" class="UP">上传商品</a>
-                    </span>
-                </li>
-            </ul>
-        </div>
-
-        <!--<span class="page-btn">
-                    <a href="goods.html" class="page-top">首页</a>
-                    <a href="#" class="page-pre">上一页</a>
-                    <a href="#" class="page-next">下一页</a>
-                    <a href="#" class="page-end">尾页</a>
-        </span>-->
-
+<body>
+<div class="shell-main-nav">
+    <div class="logo">
+        <img src="./image/Cheems log.jpg" alt="">
+        <span>大黄狗二手交易</span>
     </div>
-    </div>
+    <ul style="list-style-type:none">
+        <li><a href="/">首页</a></li>
+        <li><a href="/goToMallPage.do">二手商品</a></li>
+        <li><a href="/personal_info.do" th:text="${marketUser.uname}"></a></li>
+        <li><a class="goodshelf" href="/goToMyCart.do">我的购物车</a></li>
+        <li><a class="logout" href="/logout.do"> [ 退出 ]</a></li>
+        <div class="nav-box"></div>
+    </ul>
+</div>
+<main>
+    <section class="glass">
+        <div class="dashboard">
+            <div class="user">
+                <img src="./image/avatar.png" alt="" />
+                <h3><a class="name" th:text="${marketUser.uname}">大黄狗</a></h3>
+                <p>学生</p>
+            </div>
+            <div class="links">
+                <div class="link">
+                    <img src="./image/twitch.png" alt="" />
+                    <h2><a href="/personal_info.do" class="word"><span class="spannn">个人信息</span></a></h2>
+                </div>
+                <div class="link">
+                    <img src="./image/steam.png" alt="" />
+                    <h2><a href="/my_publish_product_page.do" class="word"><span class="spannn">我的商品</span></a></h2>
+                </div>
+                <div class="link">
+                    <img src="./image/upcoming.png" alt="" />
+                    <h2><a href="/my_buy_history.do" class="word"><span class="spannn">购买记录</span></a></h2>
+                </div>
+                <div class="link">
+                    <img src="./image/library.png" alt="" />
+                    <h2><a href="/my_sell_history.do" class="word"><span class="spannn">售卖记录</span></a></h2>
+                </div>
+            </div>
+            <div class="pro">
+                <h2>大黄狗二手交易</h2>
+                <img src="./image/controller.png" alt="" />
+            </div>
+        </div>
+        <div class="games">
+            <div class="status">
+                <h1>我的二手商品</h1>
+                <input type="text" /><br/><br/>
+            </div>
+            <div id="container">
+                <div id="goods-container" style="overflow-y: scroll">
+                    <!--<a class="ask-goods" href="/publish_product.do">发布商品</a>-->
+                    <ul class="goods-lists" >
+                        <figure class="goods-list" th:each="o:${goodsList}">
+                            <a href="#" class="goods-pic">
+                                <img th:if="${o.image==null}" src="/image/book.jpg"/>
+                                <img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
+                            </a>
+                            <a href="#" class="goods-info">
+                                <h5 class="goods-name" th:text="${o.getName()}">计算机组成原理</h5>
+                                <span class="goods-detail" th:text="'种类:' + ${o.getKind()}+' | '+ '数量:' + ${o.getNumber()}"></span>
+                                <!--						<span class="goods-detail" th:text="'数量'+${o.getNumber()}"></span>-->
+                                <h5 class="goods-price" th:text="'￥'+${o.getPrice()}">999</h5>
+                            </a>
+                            <span>
+                                    <a href="#" class="update_publish" th:value="${o.getGID()}">修改商品信息</a>
+                                    <br/><br/>
+                                    <a href="#" class="delete_publish" th:value="${o.getGID()}">下架商品</a>
+                            </span>
+                        </figure>
+                        <li class="goods-list">
+                            <a href="/publish_product.do" class="UP-pic">
+                                <img src="/image/jiajia.png"/>
+                            </a>
+                            <span>
+                                <a href="/publish_product.do" class="UP">上传商品</a>
+                            </span>
+                        </li>
+                    </ul>
+                </div>
 
+                <!--<span class="page-btn">
+                            <a href="goods.html" class="page-top">首页</a>
+                            <a href="#" class="page-pre">上一页</a>
+                            <a href="#" class="page-next">下一页</a>
+                            <a href="#" class="page-end">尾页</a>
+                </span>-->
 
-    <footer>
-        <a href="#">©2023-7 大黄狗二手交易</a>
-        <a href="#">厦UDP备114514号 - 1919810&nbsp;&nbsp;&nbsp;您的认可就是大黄狗最大的喜悦</a>
-    </footer>
-
-    </body>
+            </div>
+        </div>
+    </section>
+</main>
+<div class="circle1"></div>
+<div class="circle2"></div>
+</body>
 </html>
