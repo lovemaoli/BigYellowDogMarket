@@ -32,7 +32,7 @@ a{text-decoration:none}
 	z-index: 999;
 	top: 0;
 	box-shadow: 0 0 10px rgba(228, 147, 41, 0.5);
-	margin-bottom: 18vh;
+	margin-bottom: 0vh;
 	background: linear-gradient(to right bottom, rgba(217, 145, 86, 0.423), rgba(231, 179, 140, 0.7), rgba(227, 193, 155, 0.6));
 	backdrop-filter: blur(13px);
   }
