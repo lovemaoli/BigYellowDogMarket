@@ -623,13 +623,13 @@ td{
 
 }
 
-.logo{
-	width: 400px;
-	height: 300px;
-	display: flex;
-	/*margin-top: -300px;*/
-	/*margin-left: 500px;*/
-}
+/*.logo{*/
+/*	width: 400px;*/
+/*	height: 300px;*/
+/*	display: flex;*/
+/*	margin-top: -300px;*/
+/*	margin-left: 500px;*/
+/*}*/
 
 .nav-info a{
 	margin-left: 17px;

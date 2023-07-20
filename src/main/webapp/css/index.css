@@ -13,9 +13,9 @@ body{
 .card{
 	box-sizing: border-box;
 	font-family: 'Ubuntu', sans-serif;
-	position: absolute;
-	left: 8%;
-	top: 38%;
+	/* position: absolute; */
+	left: 10%;
+	top: 57%;
 	display: flex;
 	justify-self: center;
 	align-items: center;
@@ -23,7 +23,7 @@ body{
 
 .card span{
 	position: absolute;
-	top:0;
+	top:100;
 	width: 130px;
 	height: 130px;
 	display: block;
@@ -52,7 +52,8 @@ body{
 }
 
 .card .glass{
-	position: absolute;
+	/* position: absolute; */
+	/* top:100; */
 	width: 130px;
 	height: 200px;
 	background: rgba(255, 255, 255, 0.5);
@@ -619,7 +620,7 @@ footer a{
 	background-color: white;
 	color: #ae6d6a;
 	border-radius: 3px;
-	position: absolute;
+	/* position: absolute; */
 	right: 140px;
 	margin-top: 5px;
 	font-size: 14px;

@@ -5,6 +5,7 @@
 	<title>校园二手交易平台</title>
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="/css/index.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/navall.css"/>
 	<script type="text/javascript" src="/js/jquery-3.2.js"></script>
 	<script type="text/javascript" src="/js/search.js"></script>
 
@@ -53,20 +54,24 @@
 </head>
 <body>
 <!-- 导航 -->
+<!-- 导航条 -->
+<div class="shell-main-nav">
+	<div class="logo">
+		<img src="./image/Cheems log.jpg" alt="">
+		<span>大黄狗二手交易</span>
+	</div>
+	<ul style="list-style-type:none">
+		<li><a href="/login.do" th:if="${marketUser.uname}==null" class="username">用户</a></li>
+		<li><a href="/personal_info.do" th:if="${marketUser.uname}!=null" th:text="${marketUser.uname}"></a></li>
+		<li><a class="goodshelf" href="/login.do" th:if="${marketUser.uname}==null">&nbsp;&nbsp;&nbsp;我的购物车</a></li>
+		<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser.uname}!=null">&nbsp;&nbsp;&nbsp;我的购物车</a></li>
+		<li><a class="logout" href="#" th:if="${marketUser.uname}==null">退出</a></li>
+		<a class="logout" href="/logout.do" th:if="${marketUser.uname}!=null">退出</a>
+		<div class="nav-box"></div>
+	</ul>
+</div>
 <header class="navbar">
-
-	<div class="nav-info">
-		<!--			<a class="username" href="information.html">用户</a>-->
-		<a href="/login.do" th:if="${marketUser.uname}==null" class="username">用户</a>
-		<a href="/personal_info.do" th:if="${marketUser.uname}!=null" th:text="${marketUser.uname}"></a>
-		<!--			<a class="goodsshelf" href="register1.html">||&nbsp;&nbsp;&nbsp;注册</a>-->
-		<a class="goodshelf" href="/login.do" th:if="${marketUser.uname}==null">||&nbsp;&nbsp;&nbsp;我的购物车</a>
-		<a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser.uname}!=null">||&nbsp;&nbsp;&nbsp;我的购物车</a>
-		<a class="logout" href="#" th:if="${marketUser.uname}==null">[ 退 出 ]</a>
-		<a class="logout" href="/logout.do" th:if="${marketUser.uname}!=null">[ 退 出 ]</a>
-	</div> <!-- nav-info -->
 	<form class="nav-search">
-		<a href="/"><img class="logo" src="/image/logo.png"/></a>
 		<div class="search-form">
 			<!-- <a class="search-logo"><img src="/image/search.png"/></a> -->
 			<input type="text" id="searchInput" class="searchIn" placeholder="搜二手物品..."/>
@@ -81,8 +86,6 @@
 		<!--			<li><a href="request.html">求购区</a></li>-->
 	</ul>
 </header>
-
-
 <!-- 轮播 -->
 <div class="carousel">
 	<div class="card">
@@ -97,7 +100,7 @@
 		<span style="--i:1;"></span>
 		<span style="--i:2;"></span>
 		<span style="--i:3;"></span>
-		<div class="glass">
+		<div class="glass" style="z-index:999">
 			<h4>物品分类</h4>
 			<ul class="goods-class">
 				<li><a href="#book" title="二手书籍">书籍</a></li>
@@ -118,9 +121,10 @@
 			</ul>
 		</div>
 	</div>
+
 	<div class="goods-guide">
-		<a class="welcome">&nbsp;&nbsp;&nbsp;大黄狗便利购</a><br/>
-		<img src="/image/Cheems log.png"/>
+		<!-- <a class="welcome">&nbsp;&nbsp;&nbsp;大黄狗便利购</a><br/> -->
+		<img src="/image/logo.png" width="350"/>
 		<p class="set1">
 			<a href="/login.do" th:if="${marketUser.uname}==null" class="edit">登录</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;
@@ -128,6 +132,7 @@
 			<a href="/personal_info.do" th:if="${marketUser.uname!=null}" class="edit1">进入我的主页</a>
 		</p>
 	</div>
+
 </div>
 
 <!-- 商品分类 -->
