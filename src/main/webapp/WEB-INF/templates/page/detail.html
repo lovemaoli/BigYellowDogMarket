@@ -6,6 +6,7 @@
 	<meta charset="UTF-8"/>
 	<link rel="stylesheet" type="text/css" href="/css/bookDetail.css"/>
 	<link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
+	<link rel="stylesheet" type="text/css" href="/css/navall.css"/>
 	<script type="text/javascript" src="/js/jquery-3.2.js"></script>
 	<script type="text/javascript" src="/js/infomation.js"></script>
 
@@ -68,22 +69,22 @@
 
 </head>
 <body>
-<nav class="navbar">
-	<div class="nav-menu">
-		<ul class="menu">
-			<li><a href="/">首页</a></li>
-			<li><a href="/goToMallPage.do">二手商品</a></li>
-		</ul>
-	</div><!-- nav-menu -->
+<div class="shell-main-nav">
+	<div class="logo">
+		<img src="./image/Cheems log.jpg" alt="">
+		<span>大黄狗二手交易</span>
+	</div>
+	<ul style="list-style-type:none">
+		<li><a href="/">首页</a></li>
+		<li><a href="/goToMallPage.do">二手商品</a></li>
+		<li><a href="/personal_info.do" th:text="${marketUser.uname}">用户</a></li>
+		<li><p type="hidden" id="buyer-id" th:value="${marketUser.UID}"></p></li>
+		<li><a class="goodshelf" href="/goToMyCart.do">我的购物车</a></li>
+		<li><a class="logout" href="/logout.do"> [ 退出 ]</a></li>
+		<div class="nav-box"></div>
+	</ul>
+</div>
 
-
-		<div class="nav-info">
-			<a href="/personal_info.do" th:text="${marketUser.uname}">用户</a>
-			<p type="hidden" id="buyer-id" th:value="${marketUser.UID}"></p>
-			<a class="goodshelf" href="/goToMyCart.do">我的购物车</a>
-			<a class="logout" href="/logout.do">[ 退 出 ]</a>
-		</div>
-	</nav>
 
 <div class="container">
 
