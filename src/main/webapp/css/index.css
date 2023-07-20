@@ -10,6 +10,68 @@ body{
 	background-color: #fcedd8d6;
 }
 
+.card{
+	box-sizing: border-box;
+	font-family: 'Ubuntu', sans-serif;
+	/* position: absolute; */
+	left: 10%;
+	top: 57%;
+	display: flex;
+	justify-self: center;
+	align-items: center;
+}
+
+.card span{
+	position: absolute;
+	top:100;
+	width: 130px;
+	height: 130px;
+	display: block;
+	background: #000;
+	border-radius: 50% ;
+	transform-origin: 65px 0;
+	transform: rotate(calc(90deg*var(--i)));
+	filter: blur(30px);
+	opacity: 0.7;
+}
+
+.card span:nth-child(1){
+	background: #edfe01;
+}
+
+.card span:nth-child(2){
+	background: #ffc400;
+}
+
+.card span:nth-child(3){
+	background: #ff7300;
+}
+
+.card span:nth-child(4){
+	background: #79c400;
+}
+
+.card .glass{
+	/* position: absolute; */
+	/* top:100; */
+	width: 130px;
+	height: 200px;
+	background: rgba(255, 255, 255, 0.5);
+	border-radius: 20px;
+	border: 1px solid #fff;
+	overflow: hidden;
+}
+
+/* .card .glass::before{
+	content: '';
+	position: absolute;
+	top: 0;
+	left: -50%;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 255, 0.2)
+} */
+
 .navbar{
 	height: 200px;
 	width: 100%;
@@ -67,7 +129,7 @@ body{
 	height: 44px;
 	border: 2px solid #4b4d52;
 	position: absolute;
-	left: 49%;
+	left: 55%;
 	top: 27%;
 	outline: none;
 	font-size: 16px;
@@ -80,7 +142,7 @@ body{
 	border: 2px solid #3f4247;
 	background-color: #4b4d52;
 	position: absolute;
-	right: 13%;
+	right: 8%;
 	top: 26.6%;
 	text-indent: 5px;
 	outline: none;
@@ -117,7 +179,7 @@ body{
 }
 .search-logo img{
 	width: 20px;
-	margin-left:-6px;
+	margin-left:20px;
 }
 
 .menu{
@@ -195,28 +257,29 @@ table {
 	justify-content: center;
 }
 
-.goods-guide{
-	width: 200px;
-	height: 295px;
-	border: 1px solid rgb(83, 62, 1);
-	display: flex;
-	flex-direction: column;
-}
+/* .goods-guide{
+    width: 200px;
+    height: 295px;
+    border: 1px solid rgb(83, 62, 1);
+    display: flex;
+    flex-direction: column;
+} */
 
-.goods-guide h4{
+.glass h4{
 	height: 30px;
-	width: 200px;
 	text-align: center;
-	color: white;
-	padding-top: 7px;
-	background-color: #4b4d52;
+	color: rgb(71, 71, 71);
+	margin-top: 10px;
 }
 
 .goods-class li{
 	width: 150px;
 	height: 28px;
 	margin: 0 auto;
-	padding-top: 5px;
+	padding-top: 10px;
+	padding-left: 10px;
+	display: flex;
+	flex-direction: column;
 	list-style: none;
 	border-bottom: 1px solid #ccc;
 }
@@ -546,7 +609,7 @@ footer a{
 	margin-top: 10px;
 	margin-left: 50px;
 	color: transparent;
-	-webkit-text-stroke: 1px red;
+	-webkit-text-stroke: 1px rgb(252, 76, 7);
 	letter-spacing: 0.04em;
 }
 
@@ -557,7 +620,7 @@ footer a{
 	background-color: white;
 	color: #ae6d6a;
 	border-radius: 3px;
-	position: absolute;
+	/* position: absolute; */
 	right: 140px;
 	margin-top: 5px;
 	font-size: 14px;
