@@ -1,92 +1,110 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="zh-cn">
 <head>
-  <title>购买记录</title>
-  <meta charset="UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
-  <!-- javascript- -->
-  <script type="text/javascript" src="/js/jquery-3.2.js"></script>
-  <script type="text/javascript" src="/js/infomation.js"></script>
-
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>我的购买记录</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap"
+            rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/glassstyle.css" />
+    <link rel="stylesheet" type="text/css" href="/css/navall.css"/>
+    <link rel="stylesheet" href="/css/form.css" />
+    <script type="text/javascript" src="/js/jquery-3.2.js"></script>
+    <script type="text/javascript" src="/js/infomation.js"></script>
 </head>
 <body>
-    <!-- 导航条 -->
-    <nav class="navbar">
-      <div class="nav-menu">
-        <ul class="menu">
-          <li><a href="/">首页</a></li>
-          <li><a href="/goToMallPage.do">二手商品</a></li>
-          <!--                <li><a href="request.html">求购区</a></li>-->
-        </ul>
-      </div><!-- nav-menu -->
-
-      <div class="nav-info">
-        <!--			<a class="username" href="information.html">用户</a>-->
-        <a href="/personal_info.do" th:text="${marketUser.uname}"></a>
-        <!--			<a class="goodsshelf" href="register1.html">||&nbsp;&nbsp;&nbsp;注册</a>-->
-        <a class="goodshelf" href="/goToMyCart.do">||&nbsp;&nbsp;&nbsp;我的购物车</a>
-        <a class="logout" href="/logout.do">[ 退 出 ]</a>
-      </div> <!-- nav-info -->
-    </nav>
-
-    <div class="show">
-        <div class="menu-er" style="width: 170px">
-            <ul>
-                <li><img src="/image/ran1.jpg" class="per"/> </li>
-                <li class="chosen"><a href="/personal_info.do" class="word"><span class="spannn">个人信息</span></a></li>
-                <li class="chosen"><a href="/my_publish_product_page.do" class="word"><span class="spannn">我的商品</span></a></li>
-                <li class="chosen"><a href="/my_buy_history.do" class="word"><span class="spannn">购买记录</span></a></li>
-                <li class="chosen"><a href="/my_sell_history.do" class="word"><span class="spannn">售卖记录</span></a></li>
-            </ul>
-        </div>
-
-
-        <div align="center" class="record">
-            <div align="right" class="rightNav">
-                    <h3>我的购买记录</h3><br/>
-                    <a href="/my_buy_history.do" class="btn1">交易成功</a>
-                    <a href="/my_buy_history_ToBeSentOut.do" class="btn2">待卖家发货</a>
-                    <a href="/my_buy_history_ToBeCheck.do" class="btn3">待确认收货</a>
-
-            </div>
-            <table border="1" cellspacing="10px">
-                <thead>
-                <tr>
-                    <th width="150px">交易ID</th>
-                    <th width="190px">卖家ID</th>
-                    <th width="150px">购买日期</th>
-                    <th width="150px">购买时间</th>
-                    <th width="150px">物品名称</th>
-                    <th width="150px">物品种类</th>
-                    <th width="150px">物品价格</th>
-                    <th width="150px">购买数量</th>
-                </tr>
-                </thead>
-                <tbody>
-                <figure th:each="o:${myRecordList}">
-                    <tr>
-                        <td th:text="${o.value.PID}" align="center"></td>
-                        <td th:text="${o.key}" align="center"></td>
-                        <td th:text="${o.value.date}" align="center"></td>
-                        <td th:text="${o.value.time}" align="center"></td>
-                        <td th:text="${o.value.gname}" align="center"></td>
-                        <td th:text="${o.value.gkind}" align="center"></td>
-                        <td th:text="${o.value.gprice}" align="center"></td>
-                        <td th:text="${o.value.gnumber}" align="center"></td>
-                    </tr>
-                </figure>
-                </tbody>
-            </table>
-        </div>
-
+<div class="shell-main-nav">
+    <div class="logo">
+        <img src="./image/Cheems log.jpg" alt="">
+        <span>大黄狗二手交易</span>
     </div>
-
-
-    <footer>
-      <a href="#">©2021-7 二手物品交易</a>
-      <a href="#">意见反馈&nbsp;&nbsp;&nbsp;联系我们&nbsp;&nbsp;&nbsp;隐私权声明&nbsp;&nbsp;&nbsp;使用条款</a>
-    </footer>
-
-
+    <ul style="list-style-type:none">
+        <li><a href="/">首页</a></li>
+        <li><a href="/goToMallPage.do">二手商品</a></li>
+        <li><a href="/personal_info.do" th:text="${marketUser.uname}"></a></li>
+        <li><a class="goodshelf" href="/goToMyCart.do">我的购物车</a></li>
+        <li><a class="logout" href="/logout.do"> [ 退出 ]</a></li>
+        <div class="nav-box"></div>
+    </ul>
+</div>
+<main>
+    <section class="glass">
+        <div class="dashboard">
+            <div class="user">
+                <img src="./image/avatar.png" alt="" />
+                <h3><a class="name" th:text="${marketUser.uname}">大黄狗</a></h3>
+                <p>学生</p>
+            </div>
+            <div class="links">
+                <div class="link">
+                    <img src="./image/twitch.png" alt="" />
+                    <h2><a href="/personal_info.do" class="word"><span class="spannn">个人信息</span></a></h2>
+                </div>
+                <div class="link">
+                    <img src="./image/steam.png" alt="" />
+                    <h2><a href="/my_publish_product_page.do" class="word"><span class="spannn">我的商品</span></a></h2>
+                </div>
+                <div class="link">
+                    <img src="./image/upcoming.png" alt="" />
+                    <h2><a href="/my_buy_history.do" class="word"><span class="spannn">购买记录</span></a></h2>
+                </div>
+                <div class="link">
+                    <img src="./image/library.png" alt="" />
+                    <h2><a href="/my_sell_history.do" class="word"><span class="spannn">售卖记录</span></a></h2>
+                </div>
+            </div>
+            <div class="pro">
+                <h2>大黄狗二手交易</h2>
+                <img src="./image/controller.png" alt="" />
+            </div>
+        </div>
+        <div class="games">
+            <div class="status">
+                <h1>我的购买记录</h1>
+                <input type="text" /><br/><br/>
+                <h3>        <a href="/my_buy_history.do" class="btn1">交易成功</a>
+                    <a href="/my_buy_history_ToBeSentOut.do" class="btn2">待卖家发货</a>
+                    <a href="/my_buy_history_ToBeCheck.do" class="btn3">待确认收货</a></h3>
+            </div>
+            <div align="center" class="card">
+                <!-- <section class="shell"> -->
+                <table border="1" cellspacing="10px">
+                    <thead>
+                    <tr>
+                        <th width="150px">交易ID</th>
+                        <th width="190px">卖家ID</th>
+                        <th width="150px">购买日期</th>
+                        <th width="150px">购买时间</th>
+                        <th width="150px">物品名称</th>
+                        <th width="150px">物品种类</th>
+                        <th width="150px">物品价格</th>
+                        <th width="150px">购买数量</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <figure th:each="o:${myRecordList}">
+                        <tr>
+                            <td th:text="${o.value.PID}" align="center"></td>
+                            <td th:text="${o.key}" align="center"></td>
+                            <td th:text="${o.value.date}" align="center"></td>
+                            <td th:text="${o.value.time}" align="center"></td>
+                            <td th:text="${o.value.gname}" align="center"></td>
+                            <td th:text="${o.value.gkind}" align="center"></td>
+                            <td th:text="${o.value.gprice}" align="center"></td>
+                            <td th:text="${o.value.gnumber}" align="center"></td>
+                        </tr>
+                    </figure>
+                    </tbody>
+                </table>
+                <!-- </section> -->
+            </div>
+        </div>
+    </section>
+</main>
+<div class="circle1"></div>
+<div class="circle2"></div>
 </body>
 </html>
