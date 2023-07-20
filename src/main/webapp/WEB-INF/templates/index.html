@@ -68,10 +68,11 @@
 	<form class="nav-search">
 		<a href="/"><img class="logo" src="/image/logo.png"/></a>
 		<div class="search-form">
-			<a class="search-logo">| &nbsp;<img src="/image/search.png"/></a>
+			<!-- <a class="search-logo"><img src="/image/search.png"/></a> -->
 			<input type="text" id="searchInput" class="searchIn" placeholder="搜二手物品..."/>
-			<input type="text" style="display: none"/>
+			<!-- <input type="text" style="display: none"/> -->
 			<input type="submit" id="searchButton" class="searchBtn" value="搜索"/>
+			<!-- <input type="submit" id="searchButton" class="searchBtn" value=""/> -->
 		</div>
 	</form><!--  nav-search -->
 	<ul class="menu">
@@ -84,14 +85,27 @@
 
 <!-- 轮播 -->
 <div class="carousel">
-	<div class="goods-guide">
-		<h4>物品分类</h4>
-		<ul class="goods-class">
-			<li><a href="#book" title="二手书籍">书籍</a></li>
-			<li><a href="#bed" title="床上用品">床上用品</a></li>
-			<li><a href="#study" title="学习用品">学习用品</a></li>
-			<li><a href="#daily" title="日用品">日用品</a></li>
-		</ul>
+	<div class="card">
+		<!-- <h4>物品分类</h4> -->
+		<!-- <ul class="goods-class">
+            <li><a href="#book" title="二手书籍">书籍</a></li>
+            <li><a href="#bed" title="床上用品">床上用品</a></li>
+            <li><a href="#study" title="学习用品">学习用品</a></li>
+            <li><a href="#daily" title="日用品">日用品</a></li>
+        </ul> -->
+		<span style="--i:0;"></span>
+		<span style="--i:1;"></span>
+		<span style="--i:2;"></span>
+		<span style="--i:3;"></span>
+		<div class="glass">
+			<h4>物品分类</h4>
+			<ul class="goods-class">
+				<li><a href="#book" title="二手书籍">书籍</a></li>
+				<li><a href="#bed" title="床上用品">床上用品</a></li>
+				<li><a href="#study" title="学习用品">学习用品</a></li>
+				<li><a href="#daily" title="日用品">日用品</a></li>
+			</ul>
+		</div>
 	</div>
 	<div class="slider">
 		<div class="slider-img">
@@ -105,8 +119,8 @@
 		</div>
 	</div>
 	<div class="goods-guide">
-		<a class="welcome">Hi~欢迎光临！</a><br/>
-		<img src="/image/Cheems log.jpg"/>
+		<a class="welcome">&nbsp;&nbsp;&nbsp;大黄狗便利购</a><br/>
+		<img src="/image/Cheems log.png"/>
 		<p class="set1">
 			<a href="/login.do" th:if="${marketUser.uname}==null" class="edit">登录</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;
@@ -189,7 +203,7 @@
 			<figure class="goods-list" th:each="o:${dailyList}">
 				<a href="#" class="goods-pic"  th:value="${o.getGID()}">
 					<!--						<img src="/img/1.jpg" th:src="${o.getGID()}"/>-->
-					<img th:if="${o.image==null}" src="/image/Da.jpg"/>
+					<img th:if="${o.image==null}" src="/image/Daily_thing.jpg"/>
 					<img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
 				</a>
 				<a href="#" class="goods-info">
