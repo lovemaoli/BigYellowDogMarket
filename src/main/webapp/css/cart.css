@@ -317,6 +317,53 @@ table {
 }
 
 
+main {
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    background: linear-gradient(to right top, #e9e2a8, #e5ba97);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.glass {
+    background: white;
+    min-height: 80vh;
+    width: 80%;
+    /* height: 1000px; */
+    background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.7),
+            rgba(255, 255, 255, 0.3)
+    );
+    border-radius: 2rem;
+    z-index: 2;
+    backdrop-filter: blur(1rem);
+    display: flex;
+}
+
+.circle1,
+.circle2 {
+    background: white;
+    background: linear-gradient(
+            to right bottom,
+            rgba(255, 255, 255, 0.8),
+            rgba(255, 255, 255, 0.3)
+    );
+    height: 10rem;
+    width: 10rem;
+    position: absolute;
+    border-radius: 50%;
+}
+
+.circle1 {
+    top: 8%;
+    right: 6%;
+}
+.circle2 {
+    bottom: 0%;
+    left: 6%;
+}
 
 /*二手物品分类*/
 
@@ -346,7 +393,7 @@ table {
     width: 99%;
     height: 38px;
     font-family: Microsoft Yahei;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 2px solid rgb(184, 148, 94);
     cursor: pointer;
 }
 .goods-part .goods-title a{
@@ -385,8 +432,10 @@ table {
     min-width: 16%;
     height: 319px;
     overflow: hidden;
-    border: 1px solid #eae1d2;
-    margin-right: 25px;
+    border: 1px solid #7c7256;
+    border-radius: 10px;
+    margin-left: 20px;
+    margin-right: 40px;
     display: flex;
     justify-content: flex-start;
     flex-direction: column;
@@ -436,10 +485,10 @@ table {
 }
 
 /*.goods-name{
-	line-height: 26px;
-	margin-left: 27px;
-	font-size: 17px;
-	color: #ae6d6a;
+line-height: 26px;
+margin-left: 27px;
+font-size: 17px;
+color: #ae6d6a;
 }*/
 
 .goods-detail{
@@ -542,6 +591,7 @@ footer{
     flex-direction: column;
     justify-content: center;
     align-content: center;
+    background: linear-gradient(to right top, #f0d9ea, #ebc56c);
 }
 
 footer a{
