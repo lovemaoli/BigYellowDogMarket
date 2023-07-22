@@ -66,7 +66,7 @@
 		<li><a class="goodshelf" href="/login.do" th:if="${marketUser.uname}==null">&nbsp;&nbsp;&nbsp;我的购物车</a></li>
 		<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser.uname}!=null">&nbsp;&nbsp;&nbsp;我的购物车</a></li>
 		<li><a class="logout" href="#" th:if="${marketUser.uname}==null">退出</a></li>
-		<a class="logout" href="/logout.do" th:if="${marketUser.uname}!=null">退出</a>
+		<li><a class="logout" href="/logout.do" th:if="${marketUser.uname}!=null">退出</a></li>
 		<div class="nav-box"></div>
 	</ul>
 </div>
