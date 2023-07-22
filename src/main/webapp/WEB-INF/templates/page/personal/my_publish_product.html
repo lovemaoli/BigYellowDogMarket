@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn">
+<html lang="zh-cn" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -224,7 +224,7 @@
         .goods-list{
             width: 18%;
             min-width: 16%;
-            height: 310px;
+            height: 340px;
             overflow: hidden;
             border: 1px solid #eae1d2;
             margin-right: 25px;
@@ -433,7 +433,7 @@
                 <div id="goods-container" style="overflow-y: scroll">
                     <!--<a class="ask-goods" href="/publish_product.do">发布商品</a>-->
                     <ul class="goods-lists" >
-                        <figure class="goods-list" th:each="o:${goodsList}">
+                        <figure class="goods-list" th:each="o:${marketGoodsList}">
                             <a href="#" class="goods-pic">
                                 <img th:if="${o.image==null}" src="/image/book.jpg"/>
                                 <img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
