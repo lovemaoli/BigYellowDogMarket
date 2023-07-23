@@ -22,4 +22,6 @@ public interface RecordDao {
 
     // 添加新的方法，用于搜索销售记录
     public List<SaleRecord> SearchRecord(@Param("Gname") String Gname);
+
+    List<TradeRecord> FindRecordById(SelectVO selectVO);
 }

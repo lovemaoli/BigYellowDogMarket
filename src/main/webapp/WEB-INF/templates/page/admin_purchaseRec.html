@@ -114,7 +114,7 @@
 		}
 
 		.header .input-group input {
-			width: 100%;
+			/*width: 100%;*/
 			background-color: transparent;
 			border: none;
 			outline: none;
@@ -278,10 +278,15 @@
 		<a href="/goToAddUser.do" class="btn4"><span>新增用户</span></a>
 		<li><a href="#">交易记录管理</a></li>
 		<a href="#" th:text="${marketUser.uname}"></a>
+
 		<div class="input-group">
-			<input type="search" placeholder="Search Data...">
-			<img src="image/search.png">
+			<form action="/selectAdminStage_purchaseRec.do" method="get">
+				<input type="text" id="name" name="name" placeholder="Search Data...">
+				<input type="submit">
+			</form>
+			<!--<img src="image/search.png">--></input>
 		</div>
+
 		<a class="logout" href="/logout.do">[ 退 出 ]</a>
 	</section>
 	<section class="shell">
