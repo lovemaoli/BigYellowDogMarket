@@ -80,8 +80,8 @@
 				<li><a href="/personal_info.do" th:if="${marketUser}!=null" th:text="${marketUser.uname}"></a></li>
 				<li><a class="goodshelf" href="/login.do" th:if="${marketUser}==null">我的购物车</a></li>
 				<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser}!=null">我的购物车</a></li>
-				<li><a class="logout" href="#" th:if="${marketUser}==null">[ 退 出 ]</a></li>
-				<li><a class="logout" href="/logout.do" th:if="${marketUser}!=null"> [ 退出 ]</a></li>
+				<li><a class="logout" href="#" th:if="${marketUser}==null">退出</a></li>
+				<li><a class="logout" href="/logout.do" th:if="${marketUser}!=null">退出</a></li>
 				<div class="nav-box"></div>
 			</ul>
 		</div>
@@ -126,7 +126,7 @@
 			</h5>
 
 			<ul class="goods-lists">
-				<figure class="goods-list" th:each="o:${goodsList}">
+				<figure class="goods-list" th:each="o:${marketGoodsList}">
 					<a href="#" class="goods-pic" th:value="${o.getGID()}">
 						<img th:if="${o.image==null}" src="/image/book.jpg"/>
 						<img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
