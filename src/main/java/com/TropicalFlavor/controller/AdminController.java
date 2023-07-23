@@ -69,14 +69,10 @@ public String selectAdminStage_purchaseRec(HttpServletRequest request, Model mod
         if (id.length()<=10){
             selectVO.setPid(id);
         }else {
-            selectVO.setGid(id);
+            selectVO.setBuyerId(id);
         }
     }else {
-        if (id.startsWith("NORM")){
-            selectVO.setBuyerId(id);
-        }else {
-            selectVO.setgName(id);
-        }
+        selectVO.setgName(id);
     }
     User User = (User) request.getSession().getAttribute("marketUser");
     List<TradeRecord> tradeRecordList = adminService.FindRecordById(selectVO);

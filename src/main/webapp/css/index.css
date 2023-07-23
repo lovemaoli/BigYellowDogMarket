@@ -466,7 +466,9 @@ table {
 	padding: 10px;
 	flex-direction: column;
 	transition: .3s;
+	margin-left: 10px;
 	margin-bottom: 100px;
+
 }
 
 .goods-pic{
