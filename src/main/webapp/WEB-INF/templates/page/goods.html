@@ -126,7 +126,7 @@
 			</h5>
 
 			<ul class="goods-lists">
-				<figure class="goods-list" th:each="o:${goodsList}">
+				<figure class="goods-list" th:each="o:${marketGoodsList}">
 					<a href="#" class="goods-pic" th:value="${o.getGID()}">
 						<img th:if="${o.image==null}" src="/image/book.jpg"/>
 						<img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
