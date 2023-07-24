@@ -1,9 +1,6 @@
 package com.TropicalFlavor.controller;
 
-import com.TropicalFlavor.po.Goods;
-import com.TropicalFlavor.po.User;
-import com.TropicalFlavor.po.SaleGoods;
-import com.TropicalFlavor.po.TradeRecord;
+import com.TropicalFlavor.po.*;
 import com.TropicalFlavor.service.AdminService;
 import com.TropicalFlavor.service.UserService;
 import com.TropicalFlavor.tool.StringUtils;
@@ -62,7 +59,29 @@ public class AdminController
 //
 //        return "redirect:/goToAdminStage.do";
 //    }
+@RequestMapping(value = "/selectAdminStage_purchaseRec")
+public String selectAdminStage_purchaseRec(HttpServletRequest request, Model model)
+{
+    //1000000005	NORM11920192203642   97777878787978 	白夜行
+    SelectVO selectVO = new SelectVO();
+    String id = request.getParameter("name");
+    if (id.matches("\\d+")){
+        if (id.length()<=10){
+            selectVO.setPid(id);
+        }else {
+            selectVO.setBuyerId(id);
+        }
+    }else {
+        selectVO.setgName(id);
+    }
+    User User = (User) request.getSession().getAttribute("marketUser");
+    List<TradeRecord> tradeRecordList = adminService.FindRecordById(selectVO);
+//
+    model.addAttribute("marketUser", User);
+    model.addAttribute("tradeRecordList", tradeRecordList);
 
+    return "/page/admin_purchaseRec";
+}
     //根据返回的UID注销用户
     @RequestMapping(value = "/deleteThisUser.do")
     public String logOffUser(HttpServletRequest request, Model model, @RequestParam String UID)

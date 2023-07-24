@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <link rel="shortcut icon" href="/image/xmu.png" type="image/x-icon"/>
-  <title>修改商品信息</title>
-  <meta charset="UTF-8"/>
-  <link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/upload.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/navall.css"/>
+    <title>修改商品信息</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="/css/mygoodsshelf.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/upload.css"/>
+    <link rel="stylesheet" type="text/css" href="/css/navall.css"/>
     <script type="text/javascript" src="/js/jquery-3.2.js"></script>
     <script type="text/javascript">
         $(function ()
@@ -34,78 +34,133 @@
         })
 
     </script>
+    <style>
+        main {
+            font-family: "Poppins", sans-serif;
+            min-height: 80vh;
+            background: linear-gradient(to right top, #e9e2a8, #e5ba97);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .glass {
+            background: white;
+            min-height: 70vh;
+            width: 80%;
+            /* height: 1000px; */
+            background: linear-gradient(
+                    to right bottom,
+                    rgba(255, 255, 255, 0.7),
+                    rgba(255, 255, 255, 0.3)
+            );
+            border-radius: 2rem;
+            z-index: 2;
+            backdrop-filter: blur(1rem);
+            display: flex;
+        }
 
+        .circle1,
+        .circle2 {
+            background: white;
+            background: linear-gradient(
+                    to right bottom,
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.3)
+            );
+            height: 10rem;
+            width: 10rem;
+            position: absolute;
+            border-radius: 50%;
+        }
+
+        .circle1 {
+            top: 8%;
+            right: 6%;
+        }
+        .circle2 {
+            bottom: 0%;
+            left: 6%;
+        }
+    </style>
 </head>
 <body>
 <!-- 导航条 -->
 <div class="shell-main-nav">
-	<div class="logo">
-		<img src="./image/Cheems log.jpg" alt="">
-		<span>大黄狗二手交易</span>
-	</div>
-	<ul style="list-style-type:none">
-		<li><a href="/">首页</a></li>
-		<li><a href="/goToMallPage.do">二手商品</a></li>
-		<li><a href="/personal_info.do" class="name" th:text="${marketUser.uname}">爱困</a></li>
-		<li><a class="logout" href="/logout.do"> [ 退出 ]</a></li>
-		<div class="nav-box"></div>
-	</ul>
+    <div class="logo">
+        <img src="./image/Cheems log.jpg" alt="">
+        <span>大黄狗二手交易</span>
+    </div>
+    <ul style="list-style-type:none">
+        <li><a href="/">首页</a></li>
+        <li><a href="/goToMallPage.do">二手商品</a></li>
+        <li><a href="/personal_info.do" class="name" th:text="${marketUser.uname}">爱困</a></li>
+        <li><a class="logout" href="/logout.do"> [ 退出 ]</a></li>
+        <div class="nav-box"></div>
+    </ul>
 </div>
 
 <div class="titleName">
-  <h3>修改商品信息</h3>
+    <h3>修改商品信息</h3>
 </div>
+<main>
+    <div class="glass">
 
-<div class="container">
-  <form action="/modifyProductInfo.do" method="post" enctype="multipart/form-data">
-<!--    <input type="hidden" th:value="${action}" value="1" name="action" class="action"/>-->
-    <!--			<input type="hidden" th:if="${marketGoods.GID}!=null" th:value="${marketGoods.GID}" name="id">-->
-    <!--			<input type="hidden" th:if="${marketGoods.GID}!=null" value="0" name="id"/>-->
-<!--    <p>-->
-<!--      <span class="pic-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-->
-<!--      商&nbsp;品&nbsp;&nbsp;图&nbsp;片： <input type="file" name="goods-pic" id="goods-file"/>-->
-<!--      <img id="goods-pic" src="/image/ran3.jpg"/>-->
-<!--    </p>-->
-      <p>
-          <span class="pic-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          商&nbsp;品&nbsp;&nbsp;图&nbsp;片： <input type="file" name="image" class="goods-file"/>
-          <img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg" class="goods-pic"/>
-          <img th:if="${marketGoods.image!=null}" src="" th:src="${marketGoods.image}" class="goods-pic"/>
-      </p><br/>
-    <p>
-      <span class="name-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      商&nbsp;品&nbsp;&nbsp;名&nbsp;称：<input type="text" name="Name" th:value="${marketGoods.name}"/>
-    </p><br/>
-    <p>
-      <span class="number-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      商&nbsp;品&nbsp;&nbsp;数&nbsp;量：<input type="text" name="Number" th:value="${marketGoods.number}"/>
-    </p><br/>
-    <p>
-      <span class="price-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      商&nbsp;品&nbsp;&nbsp;售&nbsp;价：<input type="text" name="Price" th:value="${marketGoods.price}"/>
-    </p><br/>
+        <div class="container">
+            <br><br>
+            <form action="/modifyProductInfo.do" method="post" enctype="multipart/form-data">
+                <!--    <input type="hidden" th:value="${action}" value="1" name="action" class="action"/>-->
+                <!--			<input type="hidden" th:if="${marketGoods.GID}!=null" th:value="${marketGoods.GID}" name="id">-->
+                <!--			<input type="hidden" th:if="${marketGoods.GID}!=null" value="0" name="id"/>-->
+                <!--    <p>-->
+                <!--      <span class="pic-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>-->
+                <!--      商&nbsp;品&nbsp;&nbsp;图&nbsp;片： <input type="file" name="goods-pic" id="goods-file"/>-->
+                <!--      <img id="goods-pic" src="/image/ran3.jpg"/>-->
+                <!--    </p>-->
+                <p>
+                    <span class="pic-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    商&nbsp;品&nbsp;&nbsp;图&nbsp;片： <input type="file" name="image" class="goods-file"/>
+                    <img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg" class="goods-pic"/>
+                    <img th:if="${marketGoods.image!=null}" src="" th:src="${marketGoods.image}" class="goods-pic"/>
+                </p><br/>
+                <p>
+                    <span class="name-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    商&nbsp;品&nbsp;&nbsp;名&nbsp;称：<input type="text" name="Name" th:value="${marketGoods.name}"/>
+                </p><br/>
+                <p>
+                    <span class="number-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    商&nbsp;品&nbsp;&nbsp;数&nbsp;量：<input type="text" name="Number" th:value="${marketGoods.number}"/>
+                </p><br/>
+                <p>
+                    <span class="price-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    商&nbsp;品&nbsp;&nbsp;售&nbsp;价：<input type="text" name="Price" th:value="${marketGoods.price}"/>
+                </p><br/>
 
-      <p>
-          <span class="number-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-          商&nbsp;品&nbsp;&nbsp;说&nbsp;明：<input type="text" name="Comment" th:value="${marketGoods.comment}"/>
-      </p><br/>
+                <p>
+                    <span class="number-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    商&nbsp;品&nbsp;&nbsp;说&nbsp;明：<input type="text" name="Comment" th:value="${marketGoods.comment}"/>
+                </p><br/>
 
-    <p>
-      <span class="desc-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      商&nbsp;品&nbsp;&nbsp;种&nbsp;类：
-        <select name="Kind">
-            <option value="书" th:selected="${marketGoods.kind=='书'}">书</option>
-            <option value="日用品" th:selected="${marketGoods.kind=='日用品'}">日用品</option>
-            <option value="学习用品" th:selected="${marketGoods.kind=='学习用品'}">学习用品</option>
-            <option value="床上用品" th:selected="${marketGoods.kind=='床上用品'}">床上用品</option>
-        </select>
-    </p><br/>
-    <input type="submit" class="submit-btn" name="goods-submit"/>
-  </form>
-</div>
+                <p>
+                    <span class="desc-icon">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    商&nbsp;品&nbsp;&nbsp;种&nbsp;类：
+                    <select name="Kind">
+                        <option value="书" th:selected="${marketGoods.kind=='书'}">书</option>
+                        <option value="日用品" th:selected="${marketGoods.kind=='日用品'}">日用品</option>
+                        <option value="学习用品" th:selected="${marketGoods.kind=='学习用品'}">学习用品</option>
+                        <option value="床上用品" th:selected="${marketGoods.kind=='床上用品'}">床上用品</option>
+                    </select>
+                </p><br/>
+                <input type="submit" class="submit-btn" name="goods-submit"/>
+            </form>
+        </div>
+
+    </div>
+</main>
 <footer>
-  <a href="#">©2023-7 大黄狗二手交易</a>
-  <a href="#">厦UDP备114514号 - 1919810&nbsp;&nbsp;&nbsp;您的认可就是大黄狗最大的喜悦</a>
+    <a href="#">©2023-7 大黄狗二手交易</a>
+    <a href="#">厦UDP备114514号 - 1919810&nbsp;&nbsp;&nbsp;您的认可就是大黄狗最大的喜悦</a>
 </footer>
+<div class="circle1"></div>
+<div class="circle2"></div>
 </body>
 </html>

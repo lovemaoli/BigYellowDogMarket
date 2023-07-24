@@ -41,4 +41,14 @@
         select * from traderecord
         where Gname=#{Gname}
     </select>
+
+    <select id="FindRecordById"  resultType="com.TropicalFlavor.po.TradeRecord">
+        select * from traderecord
+        <where>
+            <if test="pid != null and pid != ''">PID = #{pid}</if>
+            <if test="buyerId != null and  buyerId != ''">BuyerID = #{buyerId}</if>
+            <if test="gid != null and gid != ''">GID = #{gid}</if>
+            <if test="gName != null and gName != ''">Gname = #{gName}</if>
+        </where>
+    </select>
 </mapper>

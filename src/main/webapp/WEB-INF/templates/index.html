@@ -66,7 +66,7 @@
 		<li><a class="goodshelf" href="/login.do" th:if="${marketUser.uname}==null">&nbsp;&nbsp;&nbsp;我的购物车</a></li>
 		<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser.uname}!=null">&nbsp;&nbsp;&nbsp;我的购物车</a></li>
 		<li><a class="logout" href="#" th:if="${marketUser.uname}==null">退出</a></li>
-		<a class="logout" href="/logout.do" th:if="${marketUser.uname}!=null">退出</a>
+		<li><a class="logout" href="/logout.do" th:if="${marketUser.uname}!=null">退出</a></li>
 		<div class="nav-box"></div>
 	</ul>
 </div>
@@ -82,7 +82,7 @@
 	</form><!--  nav-search -->
 	<ul class="menu">
 		<li><a class="active" href="index.html">首页</a></li>
-		<li><a href="/goToMallPage.do">二手商品</a></li>
+		<li><a href="/goToMallPage.do">全部商品</a></li>
 		<!--			<li><a href="request.html">求购区</a></li>-->
 	</ul>
 </header>

@@ -1,5 +1,6 @@
 package com.TropicalFlavor.service;
 
+import com.TropicalFlavor.po.SelectVO;
 import com.TropicalFlavor.po.User;
 import com.TropicalFlavor.po.SaleRecord;
 import com.TropicalFlavor.po.TradeRecord;
@@ -24,4 +25,5 @@ public interface AdminService {
 
     //搜索销售记录
     public List<SaleRecord> SearchRecord(String Gname);
+    List<TradeRecord> FindRecordById(SelectVO selectVO);
 }

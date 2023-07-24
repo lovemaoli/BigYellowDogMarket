@@ -3,6 +3,7 @@ package com.TropicalFlavor.service;
 import com.TropicalFlavor.dao.RecordDao;
 import com.TropicalFlavor.dao.SalesDao;
 import com.TropicalFlavor.dao.UserDao;
+import com.TropicalFlavor.po.SelectVO;
 import com.TropicalFlavor.po.User;
 import com.TropicalFlavor.po.SaleRecord;
 import com.TropicalFlavor.po.TradeRecord;
@@ -82,5 +83,10 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public List<SaleRecord> SearchRecord(String Gname) {
         return salesDao.SearchRecord(Gname);
+    }
+    @Override
+    public List<TradeRecord> FindRecordById(SelectVO selectVO) {
+        List<TradeRecord> tradeRecords= recordDao.FindRecordById(selectVO);
+        return tradeRecords;
     }
 }

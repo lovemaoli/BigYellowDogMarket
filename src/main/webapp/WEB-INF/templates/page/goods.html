@@ -9,17 +9,17 @@
 	<script type="text/javascript" src="/js/jquery-3.2.js"></script>
 	<script type="text/javascript" src="/js/goods.js"></script>
 	<script type="text/javascript" src="/js/search.js"></script>
-<!--	<script type="text/javascript">-->
-<!--		$(function (){-->
-<!--			$('.searchBtn').click(function (){-->
-<!--				var Keyword = $('.searchIn')[0].value;-->
-<!--				//if (Keyword != null)-->
-<!--				window.location.href='/goToSearch.do?Keywords='+Keyword;-->
-<!--				window.event.returnValue=false;-->
-<!--				//console.log(window.location);-->
-<!--			});-->
-<!--		})-->
-<!--	</script>-->
+	<!--	<script type="text/javascript">-->
+	<!--		$(function (){-->
+	<!--			$('.searchBtn').click(function (){-->
+	<!--				var Keyword = $('.searchIn')[0].value;-->
+	<!--				//if (Keyword != null)-->
+	<!--				window.location.href='/goToSearch.do?Keywords='+Keyword;-->
+	<!--				window.event.returnValue=false;-->
+	<!--				//console.log(window.location);-->
+	<!--			});-->
+	<!--		})-->
+	<!--	</script>-->
 	<script type="text/javascript">
 		$(function(){
 			//菜单特效
@@ -68,102 +68,103 @@
 </head>
 <body>
 
-	<!-- 导航 -->
-	<header class="navbar">
-		<div class="shell-main-nav">
-			<div class="logo">
-				<img src="./image/Cheems log.jpg" alt="">
-				<span>大黄狗二手交易</span>
-			</div>
-			<ul style="list-style-type:none">
-				<li><a href="/login.do" th:if="${marketUser}==null" class="username">用户</a></li>
-				<li><a href="/personal_info.do" th:if="${marketUser}!=null" th:text="${marketUser.uname}"></a></li>
-				<li><a class="goodshelf" href="/login.do" th:if="${marketUser}==null">我的购物车</a></li>
-				<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser}!=null">我的购物车</a></li>
-				<li><a class="logout" href="#" th:if="${marketUser}==null">[ 退 出 ]</a></li>
-				<li><a class="logout" href="/logout.do" th:if="${marketUser}!=null"> [ 退出 ]</a></li>
-				<div class="nav-box"></div>
-			</ul>
+<!-- 导航 -->
+<!-- <header class="navbar"> -->
+<div class="shell-main-nav">
+	<div class="logo">
+		<img src="./image/Cheems log.jpg" alt="">
+		<span>大黄狗二手交易</span>
+	</div>
+	<ul style="list-style-type:none">
+		<li><a href="/login.do" th:if="${marketUser}==null" class="username">用户</a></li>
+		<li><a href="/personal_info.do" th:if="${marketUser}!=null" th:text="${marketUser.uname}"></a></li>
+		<li><a class="goodshelf" href="/login.do" th:if="${marketUser}==null">我的购物车</a></li>
+		<li><a class="goodshelf" href="/goToMyCart.do" th:if="${marketUser}!=null">我的购物车</a></li>
+		<li><a class="logout" href="#" th:if="${marketUser}==null">退出</a></li>
+		<li><a class="logout" href="/logout.do" th:if="${marketUser}!=null">退出</a></li>
+		<div class="nav-box"></div>
+	</ul>
+</div>
+
+<header class="navbar">
+	<form class="nav-search">
+		<div class="search-form">
+			<!-- <a class="search-logo">| &nbsp;<img src="/image/search.png"/></a> -->
+			<input type="text" class="searchIn" th:value="${Keywords}" placeholder="搜二手物品..."/>
+			<input type="submit" class="searchBtn" value="搜索"/>
 		</div>
+	</form><!--  nav-search -->
+	<ul class="menu">
+		<li><a href="/">首页</a></li>
+		<li><a class="active" href="/goToMallPage.do">二手商品</a></li>
+		<!--			<li><a href="request.html">求购区</a></li>-->
+	</ul>
+</header>
 
-		<form class="nav-search">
-			<div class="search-form">
-				<a class="search-logo">| &nbsp;<img src="/image/search.png"/></a>
-				<input type="text" class="searchIn" th:value="${Keywords}" placeholder="搜二手物品..."/>
-				<input type="submit" class="searchBtn" value="搜索"/>
-			</div>
-		</form><!--  nav-search -->
-		<ul class="menu">
-			<li><a href="/">首页</a></li>
-			<li><a class="active" href="/goToMallPage.do">二手商品</a></li>
-<!--			<li><a href="request.html">求购区</a></li>-->
-		</ul>			
-	</header>
+<!-- 图书分类 -->
+<div id="container">
+	<div id="goods-menu">
+		<h4>物品分类</h4>
+		<ul class="goods-class">
+			<li><a href="/goToSearch.do?Keywords=书" title="二手书籍">书籍</a></li>
+			<li><a href="/goToSearch.do?Keywords=床上用品" title="床上用品">床上用品</a></li>
+			<li><a href="/goToSearch.do?Keywords=学习用品" title="学习用品">学习用品</a></li>
+			<li><a href="/goToSearch.do?Keywords=日用品" title="日用品">日用品</a></li>
+		</ul>
+	</div>
+	<div id="goods-menu-toggle">
+		查 看 菜 单
+		<div id="toggle-btn"></div>
+	</div>
+	<div id="goods-container">
+		<h3 class="goods-title"><a href="#">| 所有二手商品</a></h3>
 
-	<!-- 图书分类 -->
-	<div id="container">
-		<div id="goods-menu">
-			<h4>物品分类</h4>
-			<ul class="goods-class">
-				<li><a href="/goToSearch.do?Keywords=书" title="二手书籍">书籍</a></li>
-				<li><a href="/goToSearch.do?Keywords=床上用品" title="床上用品">床上用品</a></li>
-				<li><a href="/goToSearch.do?Keywords=学习用品" title="学习用品">学习用品</a></li>
-				<li><a href="/goToSearch.do?Keywords=日用品" title="日用品">日用品</a></li>
-			</ul>
-		</div>
-        <div id="goods-menu-toggle">
-			查 看 菜 单
-			<div id="toggle-btn"></div>
-		</div>
-		<div id="goods-container">
-			<h3 class="goods-title"><a href="#">| 所有二手商品</a></h3>
+		<h5>
+			<button class="btn btn1" th:value="${sortKind}">价格升序</button>
+			<button class="btn btn2">价格降序</button>
+			<button class="btn btn1">数量升序</button>
+			<button class="btn btn2">数量降序</button>
+		</h5>
 
-			<h5>
-				<button id="sortByPriceASC" th:value="${sortKind}">价格升序</button>
-				<button id="sortByPriceDESC">价格降序</button>
-				<button id="sortByNumberASC">数量升序</button>
-				<button id="sortByNumberDESC">数量降序</button>
-			</h5>
+		<ul class="goods-lists">
+			<figure class="goods-list" th:each="o:${marketGoodsList}">
+				<a href="#" class="goods-pic" th:value="${o.getGID()}">
+					<img th:if="${o.image==null}" src="/image/book.jpg"/>
+					<img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
+				</a>
+				<a href="#" class="goods-info">
+					<h5 class="goods-name" th:text="${o.getName()}">计算机组成原理</h5>
+					<span class="goods-detail" th:text="'种类:' + ${o.getKind()}+' | '+ '数量:' + ${o.getNumber()}"></span>
+					<!--						<span class="goods-detail" th:text="'数量'+${o.getNumber()}"></span>-->
+					<h5 class="goods-price" th:text="'￥'+${o.getPrice()}">999</h5>
+				</a>
+				<a href="#" class="goods-buy" th:value="${o.getGID()}">查看商品详情</a>
+			</figure>
+		</ul>
+	</div>
 
-			<ul class="goods-lists">
-				<figure class="goods-list" th:each="o:${marketGoodsList}">
-					<a href="#" class="goods-pic" th:value="${o.getGID()}">
-						<img th:if="${o.image==null}" src="/image/book.jpg"/>
-						<img src="" th:src="${o.image}" th:if="${o.image!=null}"/>
-					</a>
-					<a href="#" class="goods-info">
-						<h5 class="goods-name" th:text="${o.getName()}">计算机组成原理</h5>
-						<span class="goods-detail" th:text="'种类:' + ${o.getKind()}+' | '+ '数量:' + ${o.getNumber()}"></span>
-<!--						<span class="goods-detail" th:text="'数量'+${o.getNumber()}"></span>-->
-						<h5 class="goods-price" th:text="'￥'+${o.getPrice()}">999</h5>
-					</a>
-					<a href="#" class="goods-buy" th:value="${o.getGID()}">查看商品详情</a>
-				</figure>
-			</ul>
-		</div>
-
-<!--			<span class="page-btn">-->
-<!--				<a href="/goToFirstPage.do" class="page-top">首页</a>-->
-<!--				<a href="#" id="last_page" class="page-pre" th:if="${currentPage}!=0" th:value="${currentPage}">上一页</a>-->
-<!--				<a href="#" id="next_page" class="page-next" th:if="${isLastPage}!=true" th:value="${currentPage}">下一页</a>-->
-<!--				<a href="/goToLastPage.do" id="end_page" class="page-end">尾页</a>-->
-<!--			</span>	-->
-		<span class="page-btn">
+	<!--			<span class="page-btn">-->
+	<!--				<a href="/goToFirstPage.do" class="page-top">首页</a>-->
+	<!--				<a href="#" id="last_page" class="page-pre" th:if="${currentPage}!=0" th:value="${currentPage}">上一页</a>-->
+	<!--				<a href="#" id="next_page" class="page-next" th:if="${isLastPage}!=true" th:value="${currentPage}">下一页</a>-->
+	<!--				<a href="/goToLastPage.do" id="end_page" class="page-end">尾页</a>-->
+	<!--			</span>	-->
+	<span class="page-btn">
 <!--				<a href="/goToFirstPage.do" class="page-top">首页</a>-->
 				<a href="#" id="last_page" class="page-pre" th:if="${currentPage}!=0" th:value="${currentPage}">上一页</a>
 				<span th:if="${currentPage!=null}" th:text="${currentPage} / 12 + 1" id="page"></span>
 				<span th:if="${currentPage==null}" th:text="1"></span>
 				<a href="#" id="next_page" class="page-next" th:if="${isLastPage}!=true" th:value="${currentPage}">下一页</a>
-<!--				<a href="/goToLastPage.do" id="end_page" class="page-end">尾页</a>-->
+		<!--				<a href="/goToLastPage.do" id="end_page" class="page-end">尾页</a>-->
 			</span>
 
-	</div>
+</div>
 
 
-	<footer>
-		<a href="#">©2023-7 大黄狗二手交易</a>
-		<a href="#">厦UDP备114514号 - 1919810&nbsp;&nbsp;&nbsp;您的认可就是大黄狗最大的喜悦</a>
-	</footer>
+<footer>
+	<a href="#">©2023-7 大黄狗二手交易</a>
+	<a href="#">厦UDP备114514号 - 1919810&nbsp;&nbsp;&nbsp;您的认可就是大黄狗最大的喜悦</a>
+</footer>
 
 </body>
 </html>

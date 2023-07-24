@@ -55,14 +55,6 @@
 	</ul>
 </div>
 <div class="container">
-	<div id="book-pic">
-		<div class="book-big">
-			<!--				<img src="/image/book.jpg" th:src="${marketGoods.getGID()}"/>-->
-			<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
-			<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
-		</div>
-		<span class="tip"></span>
-	</div> <!-- book-pic-end -->
 
 	<div id="book-info">
 		<span class="book-name" th:text="${marketGoods.getName()}">计算机组成原理</span>
@@ -72,6 +64,16 @@
 				<p>商品数量<a class="final-price" th:text="${marketGoods.getNumber()}">9</a></p>
 			</span>
 	</div>
+
+	<div id="book-pic">
+		<div class="book-big">
+			<!--				<img src="/image/book.jpg" th:src="${marketGoods.getGID()}"/>-->
+			<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
+			<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
+		</div>
+		<span class="tip"></span>
+	</div> <!-- book-pic-end -->
+
 
 	<div id="seller-info">
 		<a class="seller-name">购买详情</a>
