@@ -6,7 +6,7 @@
 }
 
 body{
-	background-color: #fcedd8d6;
+	background-color: #fff2da;
 }
 
 
@@ -59,7 +59,7 @@ body{
 	height: 44px;
 	border: 2px solid #4b4d52;
 	position: absolute;
-	left: 49%;
+	left: 55%;
 	top: 27%;
 	outline: none;
 	font-size: 16px;
@@ -72,7 +72,7 @@ body{
 	border: 2px solid #3f4247;
 	background-color: #4b4d52;
 	position: absolute;
-	right: 13%;
+	right: 8%;
 	top: 26.6%;
 	text-indent: 5px;
 	outline: none;
@@ -92,8 +92,9 @@ body{
 }
 
 .logo{
-	width: 40%;
-	margin-left: 10%;
+	width: auto;
+	height: 100px;
+	margin-left: 100px;
 }
 
 .search-logo{
@@ -246,6 +247,32 @@ body{
 }
 .goods-class li a:hover{
 	font-weight: 600;
+}
+
+
+main {
+	font-family: "Poppins", sans-serif;
+	min-height: 85vh;
+	/* background: linear-gradient(to right top, #e9e2a8, #e5ba97); */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.glass {
+	background: white;
+	min-height: 85vh;
+	width: 85%;
+	/* height: 1000px; */
+	background: linear-gradient(
+			to right bottom,
+			rgba(255, 255, 255, 0.7),
+			rgba(255, 255, 255, 0.3)
+	);
+	border-radius: 2rem;
+	z-index: 2;
+	backdrop-filter: blur(1rem);
+	display: flex;
 }
 
 #goods-container{
@@ -492,7 +519,7 @@ body{
 }
 
 .page-btn{
-	margin: 2px auto !important;
+	margin: 50px auto !important;
 }
 
 .page-btn a{

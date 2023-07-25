@@ -85,60 +85,62 @@
 	</ul>
 </div>
 
+<main>
+	<section class="glass">
+		<div class="container">
 
-<div class="container">
+			<div id="book-info">
+				<span class="book-name" th:text="${marketGoods.getName()}">计算机组成原理</span>
+				<span class="book-publish" th:text="${marketGoods.getKind()}">唐朔飞 著 / 2009-09 / 平装</span>
+				<span class="book-price">
+          <p>售价 <a class="final-price" th:text="'￥'+${marketGoods.getPrice()}">￥13.00</a></p>
+          <p>商品数量<a class="final-price" th:text="${marketGoods.getNumber()}">2018-03-20</a></p>
+        </span>
+				<span class="buy-now" th:if="${!seller.uname.contains('已注销')}" th:value="${marketGoods.getGID()}">
+          <a>立即购买</a>
+        </span>
+				<span class="addCart" th:if="${!seller.uname.contains('已注销')}" th:value="${marketGoods.getGID()}">
+          <a>添加到购物车</a>
+        </span>
+			</div>
 
-	<div id="book-info">
-		<span class="book-name" th:text="${marketGoods.getName()}">计算机组成原理</span>
-		<span class="book-publish" th:text="${marketGoods.getKind()}">唐朔飞 著 / 2009-09 / 平装</span>
-		<span class="book-price">
-				<p>售价 <a class="final-price" th:text="'￥'+${marketGoods.getPrice()}">￥13.00</a></p>
-				<p>商品数量<a class="final-price" th:text="${marketGoods.getNumber()}">2018-03-20</a></p>
-			</span>
-		<span class="buy-now" th:if="${!seller.uname.contains('已注销')}" th:value="${marketGoods.getGID()}">
-				<a>立即购买</a>
-			</span>
-		<span class="addCart" th:if="${!seller.uname.contains('已注销')}" th:value="${marketGoods.getGID()}">
-				<a>添加到购物车</a>
-			</span>
-	</div>
+			<div id="book-pic">
 
-	<div id="book-pic">
+				<div class="book-big">
+					<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
+					<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
+				</div>
+				<!--			<span class="tip"></span>-->
+			</div>
 
-		<div class="book-big">
-			<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
-			<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
-		</div>
-		<!--			<span class="tip"></span>-->
-	</div>
-
-	<div id="seller-info">
-		<a class="seller-name" th:text="${seller.uname}">testSeller</a>
-		<p type="hidden" id="seller-id" th:value="${seller.UID}"></p>
-		<span class="seller-span1">
-				&nbsp;&nbsp;&nbsp联系<a class="seller-chat">在线联系</a>
-			</span>
-		<span class="seller-span2">
-				<p>电话<a class="seller-num" th:text="${seller.phoneNum}">132-1234-1234</a></p>
-				<p>邮箱<a class="seller-adr" th:text="${seller.email}">123@qq.com</a></p>
-			</span>
-		<!--查看此卖家其他商品，此功能可实现，建议保留-->
-		<span class="seller-span3">
-				<a href="#">[ 去看看卖家的其他商品 ]</a>
-			</span>
-	</div>
-
-
-
+			<div id="seller-info">
+				<a class="seller-name" th:text="${seller.uname}">testSeller</a>
+				<p type="hidden" id="seller-id" th:value="${seller.UID}"></p>
+				<span class="seller-span1">
+          &nbsp;&nbsp;&nbsp联系<a class="seller-chat">在线联系</a>
+        </span>
+				<span class="seller-span2">
+          <p>电话<a class="seller-num" th:text="${seller.phoneNum}">132-1234-1234</a></p>
+          <p>邮箱<a class="seller-adr" th:text="${seller.email}">123@qq.com</a></p>
+        </span>
+				<!--查看此卖家其他商品，此功能可实现，建议保留-->
+				<span class="seller-span3">
+          <a href="#">[ 去看看卖家的其他商品 ]</a>
+        </span>
+			</div>
 
 
 
-	<div id="book-content">
-		<span class="book-tip" th:if="${marketGoods.comment==null}">这个卖家很懒，什么都没留下</span>
-		<span class="book-tip" th:if="${marketGoods.comment!=null}" th:text="${marketGoods.comment}">这个卖家很懒，什么都没留下</span>
-	</div>
-</div><!--  container -->
 
+
+
+			<div id="book-content">
+				<span class="book-tip" th:if="${marketGoods.comment==null}">这个卖家很懒，什么都没留下</span>
+				<span class="book-tip" th:if="${marketGoods.comment!=null}" th:text="${marketGoods.comment}">这个卖家很懒，什么都没留下</span>
+			</div>
+		</div><!--  container -->
+	</section>
+</main>
 
 <footer>
 	<a href="#">©2023-7 大黄狗二手交易</a>

@@ -4,6 +4,31 @@ body{
 	background-size: cover;
 }
 
+main {
+	font-family: "Poppins", sans-serif;
+	min-height: 100vh;
+	/* background: linear-gradient(to right top, #e9e2a8, #e5ba97); */
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.glass {
+	background: white;
+	min-height: 90vh;
+	width: 90%;
+	/* height: 1000px; */
+	background: linear-gradient(
+			to right bottom,
+			rgba(255, 255, 255, 0.7),
+			rgba(255, 255, 255, 0.3)
+	);
+	border-radius: 2rem;
+	z-index: 2;
+	backdrop-filter: blur(1rem);
+	display: flex;
+}
+
 
 /*正文*/
 .container{
@@ -250,7 +275,7 @@ a.upload-time {
 	width: 82%;
 	height: 95px;
 	padding: 15px 3%;
-	background-color: #fff5e7;
+	background-color: #f7cc90;
 	margin-left: 4%;
 	margin: -10px auto 0;
 	color: #000;
