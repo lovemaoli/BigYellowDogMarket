@@ -54,44 +54,46 @@
 		<div class="nav-box"></div>
 	</ul>
 </div>
-<div class="container">
+<main>
+	<section class="glass">
+		<div class="container">
+			<div id="book-info">
+				<span class="book-name" th:text="${marketGoods.getName()}">计算机组成原理</span>
+				<span class="book-publish" th:text="${marketGoods.getKind()}">唐朔飞 著 / 2009-09 / 平装</span>
+				<span class="book-price">
+            <p>售价 <a class="final-price" th:text="'￥'+${marketGoods.getPrice()}">￥13.00</a></p>
+            <p>商品数量<a class="final-price" th:text="${marketGoods.getNumber()}">9</a></p>
+          </span>
+			</div>
 
-	<div id="book-info">
-		<span class="book-name" th:text="${marketGoods.getName()}">计算机组成原理</span>
-		<span class="book-publish" th:text="${marketGoods.getKind()}">唐朔飞 著 / 2009-09 / 平装</span>
-		<span class="book-price">
-				<p>售价 <a class="final-price" th:text="'￥'+${marketGoods.getPrice()}">￥13.00</a></p>
-				<p>商品数量<a class="final-price" th:text="${marketGoods.getNumber()}">9</a></p>
-			</span>
-	</div>
+			<div id="book-pic">
+				<div class="book-big">
+					<!--				<img src="/image/book.jpg" th:src="${marketGoods.getGID()}"/>-->
+					<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
+					<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
+				</div>
+				<span class="tip"></span>
+			</div> <!-- book-pic-end -->
 
-	<div id="book-pic">
-		<div class="book-big">
-			<!--				<img src="/image/book.jpg" th:src="${marketGoods.getGID()}"/>-->
-			<img th:if="${marketGoods.image==null}" src="/image/emptyImage.jpg"/>
-			<img src="" th:src="${marketGoods.image}" th:if="${marketGoods.image!=null}"/>
+
+			<div id="seller-info">
+				<a class="seller-name">购买详情</a>
+				<span class="seller-span2">
+    <!--				<p>数量<a class="seller-num">1</a></p>-->
+            <p class="cost">售价：<a class="seller-adr" th:text="${marketGoods.getPrice()}">13.0</a></p>
+            <form action="buyDirectly.do" method="post">
+              <input type="hidden" th:value="${marketGoods.getGID()}" name="GID"/>
+              <p class="seller-num">购买数量：<input type="text" name="Number"/></p>
+              <p th:if="${message}!=null" th:text="${message}"></p>
+              <p><input id="buy-submit" type="submit" class="buy-now"/></p>
+            </form>
+
+          </span>
+
+			</div>
 		</div>
-		<span class="tip"></span>
-	</div> <!-- book-pic-end -->
-
-
-	<div id="seller-info">
-		<a class="seller-name">购买详情</a>
-		<span class="seller-span2">
-<!--				<p>数量<a class="seller-num">1</a></p>-->
-				<p class="cost">售价：<a class="seller-adr" th:text="${marketGoods.getPrice()}">13.0</a></p>
-				<form action="buyDirectly.do" method="post">
-					<input type="hidden" th:value="${marketGoods.getGID()}" name="GID"/>
-					<p class="seller-num">购买数量：<input type="text" name="Number"/></p>
-					<p th:if="${message}!=null" th:text="${message}"></p>
-					<p><input id="buy-submit" type="submit" class="buy-now"/></p>
-				</form>
-
-			</span>
-
-	</div>
-</div>
-
+	</section>
+</main>
 
 <footer>
 	<a href="#">©2023-7 大黄狗二手交易</a>

@@ -252,7 +252,7 @@ body{
 
 main {
 	font-family: "Poppins", sans-serif;
-	min-height: 85vh;
+	min-height: 100vh;
 	/* background: linear-gradient(to right top, #e9e2a8, #e5ba97); */
 	display: flex;
 	align-items: center;
@@ -261,8 +261,8 @@ main {
 
 .glass {
 	background: white;
-	min-height: 85vh;
-	width: 85%;
+	min-height: 90vh;
+	width: 90%;
 	/* height: 1000px; */
 	background: linear-gradient(
 			to right bottom,
@@ -411,7 +411,7 @@ main {
 	padding: 10px;
 	flex-direction: column;
 	transition: .3s;
-	margin-bottom: 60px;
+	margin-bottom: 100px;
 	margin-left: 30px;
 }
 
@@ -447,8 +447,7 @@ main {
 	flex-direction: column;
 	text-decoration: none;
 	justify-content: center;
-	width: 250px;
-
+	/* width: 250px; */
 }
 
 .askgoods-info span{
@@ -471,7 +470,7 @@ main {
 	height: 34px;
 	line-height: 18px;
 	text-align: center;
-	margin-left: 27px;
+	/*margin-left: 27px;*/
 	color: #272222d6;
 	font-size: 13px;
 	word-wrap:break-word;
