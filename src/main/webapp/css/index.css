@@ -7,7 +7,7 @@
 /*navbar*/
 
 body{
-	background-color: #fcedd8d6;
+	background-color: #fff2da;
 }
 
 .card{
@@ -704,4 +704,13 @@ footer a{
 .edit1:hover{
 	background-color: #da2c15;
 	color: white;
+}
+
+.goods-guide img{
+	width: 500px;
+	padding-left: 110px;
+}
+
+.goods-guide p {
+	padding-right: 90px;
 }

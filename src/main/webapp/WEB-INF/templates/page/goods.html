@@ -122,10 +122,10 @@
 				<h3 class="goods-title"><a href="#">| 所有二手商品</a></h3>
 
 				<h5>
-					<button class="btn btn1" th:value="${sortKind}">价格升序</button>
-					<button class="btn btn2">价格降序</button>
-					<button class="btn btn1">数量升序</button>
-					<button class="btn btn2">数量降序</button>
+					<button id="sortByPriceASC" class="btn btn1" th:value="${sortKind}">价格升序</button>
+					<button id="sortByPriceDESC" class="btn btn2">价格降序</button>
+					<button id="sortByNumberASC" class="btn btn1">数量升序</button>
+					<button id="sortByNumberDESC" class="btn btn2">数量降序</button>
 				</h5>
 
 				<ul class="goods-lists">
